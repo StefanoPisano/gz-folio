@@ -10,7 +10,7 @@
               <li v-for="company in listOfCompanies"
                   v-bind:key="company.companyCode"
                   :class="selectedCompany.companyCode === company.companyCode ? 'list-group-item active' : 'list-group-item'"
-                  @click="selectedCompany = company">{{ company.companyName }}
+                  @click="selectedCompany = company">{{ company.label }}
               </li>
             </ul>
             <div class="spi-experience-values">
@@ -37,9 +37,10 @@ export default {
   data() {
     return {
       listOfCompanies: {
-        anoki: {
+        ank: {
           companyCode: 'ank',
-          companyName: 'ANK',
+          label: 'ANK',
+          companyName: 'Anoki S.r.l.',
           city: 'Milan, Italy',
           job: 'Full Stack Developer',
           from: 'Sept 2016',
@@ -51,9 +52,10 @@ export default {
               'Used Jenkins as the deployment tool and SonarQube for static analysis of the code.\n' +
               'Occasionally, I was a tutor for new resources. '
         },
-        techgap: {
+        tgi: {
           companyCode: 'tgi',
-          companyName: 'TGI',
+          label: 'TGI',
+          companyName: 'Tech Gap Italia',
           city: 'Milan, Italy',
           job: 'Full Stack Developer & Team Lead',
           from: 'Oct 2020',
@@ -71,7 +73,7 @@ export default {
     }
   },
   created() {
-    this.selectedCompany = this.listOfCompanies['anoki']
+    this.selectedCompany = this.listOfCompanies['tgi']
   }
 }
 </script>
