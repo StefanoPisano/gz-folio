@@ -4,6 +4,7 @@
     <About :section-index="1"/>
     <Experience :section-index="2"/>
     <Contacts :section-index="3"/>
+    <Footer/>
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import Header from './components/Header.vue';
 import About from './components/About.vue';
 import Experience from './components/Experience.vue';
 import Contacts from "@/components/Contacts";
+import Footer from "@/components/Footer";
 
 export default {
   name: 'App',
@@ -19,7 +21,8 @@ export default {
     Header,
     About,
     Experience,
-    Contacts
+    Contacts,
+    Footer
   }
 }
 </script>

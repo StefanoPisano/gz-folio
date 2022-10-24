@@ -10,7 +10,7 @@
                                                                           href="https://www.techgap.it/">Tech
             Gap Italia</a>
             <br>I strongly believe in team working and producing clean and maintainable code.</p>
-          <button class="btn btn-dark spi-button" type="button">Download CV</button>
+          <button class="btn btn-dark spi-button" disabled type="button">Download CV</button>
         </div>
       </div>
     </div>
