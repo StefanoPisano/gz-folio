@@ -3,6 +3,7 @@
     <Header/>
     <About :section-index="1"/>
     <Experience :section-index="2"/>
+    <Contacts :section-index="3"/>
   </div>
 </template>
 
@@ -10,33 +11,45 @@
 import Header from './components/Header.vue';
 import About from './components/About.vue';
 import Experience from './components/Experience.vue';
+import Contacts from "@/components/Contacts";
 
 export default {
   name: 'App',
   components: {
     Header,
     About,
-    Experience
+    Experience,
+    Contacts
   }
 }
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
+
 body {
   background: #0a192f;
   color: #5a6681;
+  font-size: .9em;
+  text-align: justify;
+}
+
+a {
+  font-family: 'Noto Sans Mono', monospace;
+  color: #64ffda !important;
 }
 
 .index-name {
+  font-family: 'Noto Sans Mono', monospace;
   color: #64ffda;
-  font-size: 1.2em;
 }
 
 .index-name::after {
-  content: ' . '
+  content: '.'
 }
 
 .section-name {
+  font-family: 'Noto Sans Mono', monospace;
   color: #ccd6f6;
 }
 
@@ -75,5 +88,30 @@ body {
   display: grid;
   column-gap: 25px;
   grid-template-columns:30% auto;
+}
+
+@media (max-width: 900px) {
+  .spi-card-content-img-left {
+    grid-template-columns: 100%;
+    row-gap: 25px;
+  }
+
+  .spi-card-content-img-right {
+    display: grid;
+    row-gap: 25px;
+    grid-auto-flow: row;
+    grid-template-columns: 100%;
+  }
+
+  .spi-card-content-img-right :nth-child(2) {
+    grid-area: 1;
+    text-align: center;
+  }
+
+  .spi-card-content-img-right div:nth-child(2) img {
+    border-radius: 0 !important;
+    width: 80%;
+    margin: auto;
+  }
 }
 </style>

@@ -80,14 +80,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-#spi-experience {
-  min-height: 500px;
-}
-
 .list-group li {
   background: transparent;
   color: #64ffda;
   border-color: #64ffda;
+  font-family: 'Noto Sans Mono', monospace;
 }
 
 .list-group li.active {
@@ -97,6 +94,7 @@ export default {
 }
 
 .spi-experience-key {
+  font-family: 'Noto Sans Mono', monospace;
   color: #64ffda;
 }
 

@@ -48,12 +48,13 @@ export default {
 .skill-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(140px, 200px));
-  gap: 0px 10px;
-  padding: 0px;
-  margin: 20px 0px 0px;
+  gap: 0 10px;
+  padding: 0;
+  margin: 20px 0 0;
   overflow: hidden;
   list-style: none;
   columns: 2 !important;
+  font-family: 'Noto Sans Mono', monospace;
 }
 
 .skill-list li {

@@ -3,12 +3,13 @@
     <div class="col-md-8 offset-md-2">
       <div class="card">
         <div class="card-body">
+          <h6 class="greetings">Hi! :)</h6>
           <h1 class="card-title">Stefano Pisano.</h1>
           <h1 class="card-title card-title-2">I code things.</h1>
-          <p class="card-text">A passionate developer. Currently I am also a Team Lead at <a class="link-info spi-link"
-                                                                                             href="https://www.techgap.it/">Tech
+          <p class="card-text">A passionate developer and Team Lead at <a class="link-info spi-link"
+                                                                          href="https://www.techgap.it/">Tech
             Gap Italia</a>
-            <br>I strongly believe in team working and writing clean code.</p>
+            <br>I strongly believe in team working and producing clean and maintainable code.</p>
           <button class="btn btn-dark spi-button" type="button">Download CV</button>
         </div>
       </div>
@@ -34,6 +35,11 @@ export default {
   align-items: flex-start;
   min-height: 100vh;
   padding: 0;
+}
+
+.greetings {
+  font-family: 'Noto Sans Mono', monospace;
+  color: #64ffda;
 }
 
 .card {
