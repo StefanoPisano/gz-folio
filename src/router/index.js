@@ -8,22 +8,23 @@ import Contacts from "@/components/Contacts";
 
 const routes = [
 	{
-		path: "",
+		path: "/",
+		alias: ["/stefanopisano-me", "/"],
 		name: "Greetings",
 		component: Header,
 	},
 	{
-		path: "/about",
+		path: "/stefanopisano-me/about",
 		name: "About",
 		component: About,
 	},
 	{
-		path: "/experience",
+		path: "/stefanopisano-me/experience",
 		name: "Experience",
 		component: Experience,
 	},
 	{
-		path: "/contacts",
+		path: "/stefanopisano-me/contacts",
 		name: "Contacts",
 		component: Contacts,
 	}
