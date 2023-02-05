@@ -56,12 +56,12 @@ export default {
           label: 'TGI',
           companyName: 'Tech Gap Italia',
           city: 'Milan, Italy',
-          job: 'Full Stack Developer & Team Lead',
+          job: 'Full Stack Developer & Team Leader',
           from: 'Oct 2020',
           to: 'Present',
           tags: ['JAVA', 'Spring', 'Vue', 'Jenkins', 'AWS'],
-          jobDescriptions: ['Working as Full-Stack Developer on the development of new functionalities.',
-            'Team Leader on an International project. Managing team work and communication to the client.',
+          jobDescriptions: ['Working as Full-Stack Developer on new functionalities.',
+            'Team Leader on an International project. Managing team work and communication with the client.',
             'Tutoring activities for new entries.']
         }
       },

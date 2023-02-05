@@ -14,17 +14,17 @@ const routes = [
 		component: Header,
 	},
 	{
-		path: "/stefanopisano-me/about",
+		path: "/about",
 		name: "About",
 		component: About,
 	},
 	{
-		path: "/stefanopisano-me/experience",
+		path: "/experience",
 		name: "Experience",
 		component: Experience,
 	},
 	{
-		path: "/stefanopisano-me/contacts",
+		path: "/contacts",
 		name: "Contacts",
 		component: Contacts,
 	}
@@ -32,7 +32,7 @@ const routes = [
 
 
 const router = VueRouter.createRouter({
-	history: VueRouter.createWebHistory(),
+	history: VueRouter.createWebHashHistory(),
 	routes,
 });
 

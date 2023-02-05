@@ -6,8 +6,8 @@
           <h6 class="greetings">Hi! :)</h6>
           <h1 class="card-title">Stefano Pisano.</h1>
           <h1 class="card-title card-title-2">I code things.</h1>
-          <p class="card-text">A passionate developer and Team Lead at <a class="link-info spi-link"
-                                                                          href="https://www.techgap.it/">Tech
+          <p class="card-text">A passionate developer and Team Leader at <a class="link-info spi-link"
+                                                                            href="https://www.techgap.it/">Tech
             Gap Italia</a>
             <br>I strongly believe in team working and producing clean and maintainable code.</p>
         </div>
