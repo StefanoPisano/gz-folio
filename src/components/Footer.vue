@@ -14,11 +14,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-footer {
-  margin: 50px 0 20px 0;
-  font-family: 'Noto Sans Mono', monospace;
+#spi-footer {
+  position: absolute;
+  bottom: 0;
   text-align: center;
+  margin: 0 0 20px 0;
+  font-family: 'Noto Sans Mono', monospace;
   font-size: .8em;
+  width: 99%;
 }
 
+@media (max-width: 1024px) {
+  #spi-footer {
+    position: relative;
+  }
+}
 </style>

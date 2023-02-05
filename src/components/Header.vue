@@ -10,7 +10,6 @@
                                                                           href="https://www.techgap.it/">Tech
             Gap Italia</a>
             <br>I strongly believe in team working and producing clean and maintainable code.</p>
-          <button class="btn btn-dark spi-button" disabled type="button">Download CV</button>
         </div>
       </div>
     </div>
@@ -33,7 +32,6 @@ export default {
   -moz-box-align: center;
   flex-direction: column;
   align-items: flex-start;
-  min-height: 100vh;
   padding: 0;
 }
 
@@ -44,6 +42,7 @@ export default {
 
 .card {
   background: transparent;
+  border: none
 }
 
 .card-title {

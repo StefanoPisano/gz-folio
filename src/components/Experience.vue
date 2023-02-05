@@ -3,8 +3,6 @@
     <div class="col-md-8 offset-md-2">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title spi-card-title-border"><span class="index-name">{{ sectionIndex }}</span> <span
-              class="section-name">Experience</span></h5>
           <div class="card-text spi-card-content-img-left">
             <ul class="list-group">
               <li v-for="company in listOfCompanies"
@@ -14,12 +12,15 @@
               </li>
             </ul>
             <div class="spi-experience-values">
-              <div><span class="spi-experience-key">Company Name:</span> {{ selectedCompany.companyName }}</div>
-              <div><span class="spi-experience-key">City:</span> {{ selectedCompany.city }}</div>
-              <div><span class="spi-experience-key">Job:</span> {{ selectedCompany.job }}</div>
-              <div><span class="spi-experience-key">From:</span> {{ selectedCompany.from }}</div>
-              <div><span class="spi-experience-key">To:</span> {{ selectedCompany.to }}</div>
-              <div><span class="spi-experience-key">Description:</span> {{ selectedCompany.description }}</div>
+              <div class="company-header">{{ selectedCompany.job }} @<span
+                  class="company-name">{{ selectedCompany.companyName }}</span></div>
+              <div class="company-city">{{ selectedCompany.city }}</div>
+              <div class="company-period">{{ selectedCompany.from }} - {{ selectedCompany.to }}</div>
+              <div class="job-tags"><span v-for="(item, index) in selectedCompany.tags" v-bind:key="index"
+                                          v-html="item"></span></div>
+              <ul class="job-list">
+                <li v-for="(item, index) in selectedCompany.jobDescriptions" v-bind:key="index" v-html="item"></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -31,9 +32,6 @@
 <script>
 export default {
   name: 'SPExperience',
-  props: {
-    sectionIndex: Number
-  },
   data() {
     return {
       listOfCompanies: {
@@ -45,12 +43,13 @@ export default {
           job: 'Full Stack Developer',
           from: 'Sept 2016',
           to: 'Oct 2020',
-          description: 'Full-stack developer on a project for a client leader in the game translation/localization industry.\n' +
-              'Responsible for the maintenance team, coordinating other resources to solve issues notified by the client.\n' +
-              'I also worked on code refactoring sessions and on the introduction of new technologies like Vue JS.\n' +
-              'Software built upon a Model-View-Controller architecture using Java, Spring, Hibernate, JSP, Javascript, JQuery, Vue.js and an SQLServer database.\n' +
-              'Used Jenkins as the deployment tool and SonarQube for static analysis of the code.\n' +
-              'Occasionally, I was a tutor for new resources. '
+          tags: ['JAVA', 'Spring', 'Vue', 'Jenkins', 'SQL Server', 'Jasper'],
+          jobDescriptions: ['Full-stack developer on a project for a client leader in the game translation/localization industry.',
+            'Responsible for the maintenance team, coordinating other resources to solve issues notified by the client.',
+            'Code Refactoring sessions to improve readability and performances.',
+            'Introduction of new technologies like Vue.js for the frontend side of the application.',
+            'Used Jenkins as the deployment tool and SonarQube for static analysis of the code.',
+            'Tutoring activities for new entries.']
         },
         tgi: {
           companyCode: 'tgi',
@@ -60,8 +59,10 @@ export default {
           job: 'Full Stack Developer & Team Lead',
           from: 'Oct 2020',
           to: 'Present',
-          description: 'Working as Full-Stack Developer and Team Leader on an International project.\n' +
-              'Mainly working on the development of new functionalities, from the analysis paper to the development phase'
+          tags: ['JAVA', 'Spring', 'Vue', 'Jenkins', 'AWS'],
+          jobDescriptions: ['Working as Full-Stack Developer on the development of new functionalities.',
+            'Team Leader on an International project. Managing team work and communication to the client.',
+            'Tutoring activities for new entries.']
         }
       },
       selectedCompany: {}
@@ -80,6 +81,32 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.company-header {
+  color: #ccd6f6;
+  font-weight: bolder;
+  font-size: 20px
+}
+
+.company-name {
+  color: #64ffda;
+}
+
+.company-period, .company-city {
+  font-family: 'Noto Sans Mono', monospace;
+  font-size: 12px;
+}
+
+.job-tags span {
+  font-family: 'Noto Sans Mono', monospace;
+  font-size: 9px;
+  margin: 0 2px;
+}
+
+.job-tags span::before {
+  color: #64ffda;
+  content: '#'
+}
+
 .list-group li {
   background: transparent;
   color: #64ffda;
@@ -93,13 +120,30 @@ export default {
   border-color: #64ffda;
 }
 
-.spi-experience-key {
-  font-family: 'Noto Sans Mono', monospace;
-  color: #64ffda;
-}
-
 .spi-experience-values {
   text-align: justify;
+}
+
+.job-list {
+  padding: 0;
+  margin: 20px 0 0;
+  overflow: hidden;
+  list-style: none;
+  font-family: 'Noto Sans Mono', monospace;
+  font-size: 14px;
+}
+
+.job-list li {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 20px;
+}
+
+.job-list li::before {
+  content: "▹";
+  color: #64ffda;
+  position: absolute;
+  left: 0;
 }
 
 </style>
