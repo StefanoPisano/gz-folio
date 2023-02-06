@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
     <div class="container-fluid">
-      <router-link class="nav-link" to="/stefanopisano-me" @click="visible = false">
+      <router-link class="nav-link" to="/" @click="visible = false">
         <img alt="" class="d-inline-block align-text-top" height="30" src="../assets/img/avlogo.png" width="30">
       </router-link>
       <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
@@ -13,7 +13,7 @@
       <div id="navContent" :class="!visible?'collapse':'nav-opened'" class="navbar-collapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <router-link class="nav-link" to="/stefanopisano-me" @click="visible = false"><span
+            <router-link class="nav-link" to="/" @click="visible = false"><span
                 class="spi-index">1.</span>Home
             </router-link>
           </li>
@@ -28,9 +28,6 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/contacts" @click="visible = false"><span class="spi-index">4.</span>Contacts
             </router-link>
-          </li>
-          <li class="nav-item">
-
           </li>
         </ul>
       </div>
@@ -51,12 +48,13 @@ export default {
 
 <style scoped>
 nav {
-  background: #0a192f;
   margin-bottom: 500px;
+  backdrop-filter: blur(90px);
 }
 
 .nav-opened {
   height: 100vh;
   font-size: 24px
 }
+
 </style>

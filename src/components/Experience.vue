@@ -16,8 +16,10 @@
                   class="company-name">{{ selectedCompany.companyName }}</span></div>
               <div class="company-city">{{ selectedCompany.city }}</div>
               <div class="company-period">{{ selectedCompany.from }} - {{ selectedCompany.to }}</div>
-              <div class="job-tags"><span v-for="(item, index) in selectedCompany.tags" v-bind:key="index"
-                                          v-html="item"></span></div>
+              <div class="job-tags">
+                <div v-for="(item, index) in selectedCompany.tags" v-bind:key="index"
+                     v-html="item"></div>
+              </div>
               <ul class="job-list">
                 <li v-for="(item, index) in selectedCompany.jobDescriptions" v-bind:key="index" v-html="item"></li>
               </ul>
@@ -43,7 +45,7 @@ export default {
           job: 'Full Stack Developer',
           from: 'Sept 2016',
           to: 'Oct 2020',
-          tags: ['JAVA', 'Spring', 'Vue', 'Jenkins', 'SQL Server', 'Jasper'],
+          tags: ['JAVA', 'Spring', 'Vue', 'jQuery', 'Javascript', 'Jenkins', 'SQL Server', 'Jasper'],
           jobDescriptions: ['Full-stack developer on a project for a client leader in the game translation/localization industry.',
             'Responsible for the maintenance team, coordinating other resources to solve issues notified by the client.',
             'Code Refactoring sessions to improve readability and performances.',
@@ -84,7 +86,7 @@ export default {
 .company-header {
   color: #ccd6f6;
   font-weight: bolder;
-  font-size: 20px
+  font-size: 24px
 }
 
 .company-name {
@@ -96,15 +98,18 @@ export default {
   font-size: 12px;
 }
 
-.job-tags span {
+.job-tags div {
   font-family: 'Noto Sans Mono', monospace;
-  font-size: 9px;
+  white-space: nowrap;
+  font-size: 10px;
   margin: 0 2px;
-}
-
-.job-tags span::before {
-  color: #64ffda;
-  content: '#'
+  background: #64ffda;
+  width: 80px;
+  border-radius: 2px;
+  padding: 2px;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
 }
 
 .list-group li {
@@ -129,8 +134,7 @@ export default {
   margin: 20px 0 0;
   overflow: hidden;
   list-style: none;
-  font-family: 'Noto Sans Mono', monospace;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .job-list li {

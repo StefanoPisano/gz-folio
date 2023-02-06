@@ -2,9 +2,9 @@
   <div id="spi-header" class="row">
     <div class="col-md-8 offset-md-2">
       <div class="card">
-        <div class="card-body">
+        <div class="card-body typewriter">
           <h6 class="greetings">Hi! :)</h6>
-          <h1 class="card-title">Stefano Pisano.</h1>
+          <h1 class="card-title dev-name">Stefano Pisano.</h1>
           <h1 class="card-title card-title-2">I code things.</h1>
           <p class="card-text">A passionate developer and Team Leader at <a class="link-info spi-link"
                                                                             href="https://www.techgap.it/">Tech
@@ -22,7 +22,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 #spi-header {
@@ -42,7 +41,7 @@ export default {
 
 .card {
   background: transparent;
-  border: none
+  border: none;
 }
 
 .card-title {
@@ -53,5 +52,26 @@ export default {
 
 .card-title-2 {
   color: #8892b0;
+  font-size: clamp(40px, 8vw, 40px) !important;
+}
+
+.card-text {
+  font-size: 18px;
+}
+
+.typewriter .dev-name {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 3s steps(30, end) forwards;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+  to {
+    width: 100%
+  }
 }
 </style>

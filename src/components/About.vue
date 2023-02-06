@@ -23,12 +23,11 @@
                     <br/>I also like photography and whenever I can, I go for a hike in the nature with my camera.
                   </p></div>
                 <ul class="spi-list">
-                  <li>JAVA</li>
-                  <li>SQL</li>
-                  <li>HTML</li>
-                  <li>CSS</li>
-                  <li>JavaScript</li>
-                  <li>Vue JS</li>
+                  <li>Coding</li>
+                  <li>Cinema</li>
+                  <li>Music</li>
+                  <li>Photography</li>
+                  <li>Environment</li>
                 </ul>
               </div>
               <div class="img-wrapper">
@@ -56,7 +55,7 @@ export default {
 <style scoped>
 .spi-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(140px, 200px));
+  grid-template-columns: repeat(2, minmax(140px, 250px));
   gap: 0 10px;
   padding: 0;
   margin: 20px 0 0;
@@ -64,7 +63,8 @@ export default {
   list-style: none;
   columns: 2 !important;
   font-family: 'Noto Sans Mono', monospace;
-  font-size: 12px;
+  font-size: 16px;
+  white-space: nowrap;
 }
 
 .spi-list li {
