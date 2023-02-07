@@ -26,7 +26,11 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/contacts" @click="visible = false"><span class="spi-index">4.</span>Contacts
+            <router-link class="nav-link" to="/blog" @click="visible = false"><span class="spi-index">4.</span>Blog
+            </router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" to="/contacts" @click="visible = false"><span class="spi-index">5.</span>Contacts
             </router-link>
           </li>
         </ul>

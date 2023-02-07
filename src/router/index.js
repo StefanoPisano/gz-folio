@@ -1,10 +1,11 @@
 import * as VueRouter from 'vue-router'
 
 
-import Header from '../components/Greetings.vue';
-import About from '../components/About.vue';
-import Experience from '../components/Experience.vue';
+import Header from '@/components/Greetings';
+import About from '@/components/About';
+import Experience from '../components/Experience';
 import Contacts from "@/components/Contacts";
+import Blog from "@/components/Blog";
 
 const routes = [
 	{
@@ -26,6 +27,11 @@ const routes = [
 		path: "/contacts",
 		name: "Contacts",
 		component: Contacts,
+	},
+	{
+		path: "/blog",
+		name: "Blog",
+		component: Blog,
 	}
 ];
 
