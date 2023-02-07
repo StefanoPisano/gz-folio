@@ -1,13 +1,5 @@
 # stefanopisano-me
 
-<meta-info>
-<meta-title>stefanopisano-me</meta-title>
-<meta-desc>How to laucnh this portfolio
-</meta-desc>
-<meta-author>Mario rossi</meta-author>
-<meta-date>2023-01-19</meta-date>
-</meta-info>
-
 ## Project setup
 
 ```
