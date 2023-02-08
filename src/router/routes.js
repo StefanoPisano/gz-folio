@@ -5,8 +5,9 @@ import Greetings from '@/components/Greetings.vue';
 import About from '@/components/About.vue';
 import Experience from '@/components/Experience.vue';
 import Contacts from "@/components/Contacts";
+import Blog from "@/components/Blog";
 
-const components = [Greetings, About, Experience, Contacts];
+const components = [Greetings, About, Experience, Contacts, Blog];
 const routes = components
 	.filter(v => RouterToggle.find(ft => v.name === ft.name && ft.enabled))
 	.map(v => {

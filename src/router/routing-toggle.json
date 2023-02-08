@@ -22,5 +22,11 @@
     "label": "Contacts",
     "path": "/contacts",
     "enabled": true
+  },
+  {
+    "name": "SPBlog",
+    "label": "Blog",
+    "path": "/blog",
+    "enabled": true
   }
 ]
