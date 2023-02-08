@@ -1,0 +1,26 @@
+[
+  {
+    "name": "SPGreetings",
+    "label": "Home",
+    "path": "/",
+    "enabled": true
+  },
+  {
+    "name": "SPAbout",
+    "label": "About",
+    "path": "/about",
+    "enabled": true
+  },
+  {
+    "name": "SPExperience",
+    "label": "Experience",
+    "path": "/experience",
+    "enabled": true
+  },
+  {
+    "name": "SPContacts",
+    "label": "Contacts",
+    "path": "/contacts",
+    "enabled": true
+  }
+]

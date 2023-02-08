@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'SPContact'
+  name: 'SPContacts'
 }
 </script>
 
