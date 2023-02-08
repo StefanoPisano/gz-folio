@@ -5,7 +5,7 @@ import Greetings from '@/components/greetings/Greetings.vue';
 import About from '@/components/about/About.vue';
 import Experience from '@/components/experience/Experience.vue';
 import Contacts from "@/components/contacts/Contacts.vue";
-import Blog from "@/components/Blog";
+import Blog from "@/components/blog/Blog.vue";
 
 const components = [Greetings, About, Experience, Contacts, Blog];
 const routes = components
