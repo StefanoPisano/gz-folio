@@ -1,0 +1,52 @@
+[
+  {
+    "companyCode": "ank",
+    "label": "ANK",
+    "companyName": "Anoki S.r.l.",
+    "city": "Milan, Italy",
+    "job": "Full Stack Developer",
+    "from": "Sept 2016",
+    "to": "Oct 2020",
+    "tags": [
+      "JAVA",
+      "Spring",
+      "Vue",
+      "jQuery",
+      "Javascript",
+      "Jenkins",
+      "SQL Server",
+      "Jasper"
+    ],
+    "jobDescriptions": [
+      "Full-stack developer on a project for a client leader in the game translation/localization industry.",
+      "Responsible for the maintenance team, coordinating other resources to solve issues notified by the client.",
+      "Code Refactoring sessions to improve readability and performances.",
+      "Introduction of new technologies like Vue.js for the frontend side of the application.",
+      "Used Jenkins as the deployment tool and SonarQube for static analysis of the code.",
+      "Tutoring activities for new entries."
+    ],
+    "default": false
+  },
+  {
+    "companyCode": "tgi",
+    "label": "TGI",
+    "companyName": "Tech Gap Italia",
+    "city": "Milan, Italy",
+    "job": "Full Stack Developer & Team Leader",
+    "from": "Oct 2020",
+    "to": "Present",
+    "tags": [
+      "JAVA",
+      "Spring",
+      "Vue",
+      "Jenkins",
+      "AWS"
+    ],
+    "jobDescriptions": [
+      "Working as Full-Stack Developer on new functionalities.",
+      "Team Leader on an International project. Managing team work and communication with the client.",
+      "Tutoring activities for new entries."
+    ],
+    "default": true
+  }
+]

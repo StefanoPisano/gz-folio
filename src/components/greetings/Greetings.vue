@@ -3,13 +3,10 @@
     <div class="col-md-8 offset-md-2">
       <div class="card">
         <div class="card-body typewriter">
-          <h6 class="greetings">Hi! :)</h6>
-          <h1 class="card-title dev-name">Stefano Pisano.</h1>
-          <h1 class="card-title card-title-2">I code things.</h1>
-          <p class="card-text">A passionate developer and Team Leader at <a class="link-info spi-link"
-                                                                            href="https://www.techgap.it/">Tech
-            Gap Italia</a>
-            <br>I strongly believe in team working and producing clean and maintainable code.</p>
+          <h6 class="greetings" v-text="greetings.greeting"/>
+          <h1 class="card-title dev-name" v-text="greetings.title"/>
+          <h1 class="card-title card-title-2" v-text="greetings.subTitle"/>
+          <p class="card-text" v-html="greetings.caption"/>
         </div>
       </div>
     </div>
@@ -17,8 +14,15 @@
 </template>
 
 <script>
+import Greetings from "./greetings.json";
+
 export default {
   name: 'SPGreetings',
+  data() {
+    return {
+      greetings: Greetings
+    }
+  }
 }
 </script>
 
