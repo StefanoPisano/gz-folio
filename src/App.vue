@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid" style="position: relative; min-height: 100vh; padding-bottom: 50px">
     <Navigation/>
 
     <div id="spi-router">
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Navigation from './components/Navigation.vue';
+import Navigation from '@/components/Navigation';
 import Footer from "@/components/Footer";
 
 export default {
