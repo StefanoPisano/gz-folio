@@ -6,28 +6,9 @@
           <div class="card-body">
             <div class="spi-card-content-img-right">
               <div>
-                <div class="card-text">
-                  <p><span class="colored-text">Hello!</span> My name is Stefano and I am an italian software developer
-                    based in Milan.
-                    I strongly believe in good practices and team working.
-                    My career in software development <span class="colored-text">started back in 2016</span> but my love
-                    for this world was there since I was a kid
-                    when I was playing with CSS, HTML in order to create some custom themes for a forum.</p>
-                  <p>While writing code I always try to apply some magic tricks which will transform <span
-                      class="disabled-text">bad</span> code into <span class="colored-text">clean</span> code.
-                    <br/>I also have some experience in leading a small team for an international project.
-                  </p>
-                  <p>My life is not entirely related to coding, I am passionate about every music genre and in my free
-                    time I like being a
-                    self-taught guitar player.
-                    <br/>I also like photography and whenever I can, I go for a hike in the nature with my camera.
-                  </p></div>
+                <div class="card-text" v-html="data.about"/>
                 <ul class="spi-list">
-                  <li>Coding</li>
-                  <li>Cinema</li>
-                  <li>Music</li>
-                  <li>Photography</li>
-                  <li>Environment</li>
+                  <li v-for="(passion, i) in data.passions" v-bind:key="i" v-text="passion"/>
                 </ul>
               </div>
               <div class="img-wrapper">
@@ -46,13 +27,20 @@
 </template>
 
 <script>
+
+import About from "./about.json";
+
 export default {
-  name: 'SPAbout'
+  name: 'SPAbout',
+  data() {
+    return {
+      data: About
+    }
+  }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
 .spi-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(140px, 250px));

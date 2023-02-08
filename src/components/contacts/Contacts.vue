@@ -4,12 +4,11 @@
       <div class="card mb-3">
         <div class="row g-0">
           <div class="card-body">
-            <div><p class="card-text" style="text-align: center">
-              <a class="btn btn-dark spi-button" href="https://github.com/StefanoPisano" type="button">Git Hub</a><br>
-              <a class="btn btn-dark spi-button" href="https://www.linkedin.com/in/stefano-pisano/" type="button">Linkedin</a><br>
-              <a class="btn btn-dark spi-button" href="mailto:spisano@protonmail.com" type="button">Contact me!</a>
+            <p class="card-text" style="text-align: center">
+              <template v-for="(contact, i) in contacts" v-bind:key="i">
+                <a :href="contact.link" class="btn btn-dark spi-button" type="button" v-text="contact.label"/><br/>
+              </template>
             </p>
-            </div>
           </div>
         </div>
       </div>
@@ -18,8 +17,15 @@
 </template>
 
 <script>
+import Contacts from "./contacts.json";
+
 export default {
-  name: 'SPContacts'
+  name: 'SPContacts',
+  data() {
+    return {
+      contacts: Contacts
+    }
+  }
 }
 </script>
 

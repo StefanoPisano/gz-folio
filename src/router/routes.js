@@ -1,10 +1,10 @@
 import * as VueRouter from 'vue-router'
 
 import RouterToggle from '@/router/routing-toggle.json';
-import Greetings from '@/components/Greetings.vue';
-import About from '@/components/About.vue';
-import Experience from '@/components/Experience.vue';
-import Contacts from "@/components/Contacts";
+import Greetings from '@/components/greetings/Greetings.vue';
+import About from '@/components/about/About.vue';
+import Experience from '@/components/experience/Experience.vue';
+import Contacts from "@/components/contacts/Contacts.vue";
 
 const components = [Greetings, About, Experience, Contacts];
 const routes = components

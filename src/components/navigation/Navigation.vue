@@ -2,7 +2,7 @@
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
     <div class="container-fluid">
       <router-link class="nav-link" to="/" @click="visible = false">
-        <img alt="" class="d-inline-block align-text-top" height="30" src="../assets/img/avlogo.png" width="30">
+        <img alt="" class="d-inline-block align-text-top" height="30" src="../../assets/img/avlogo.png" width="30">
       </router-link>
       <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
               data-target="#navbarNav" data-toggle="collapse" type="button"
