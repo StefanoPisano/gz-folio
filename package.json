@@ -15,7 +15,8 @@
     "raw-loader": "^4.0.2",
     "vue": "^3.2.13",
     "vue-resource": "^1.5.3",
-    "vue-router": "^4.0.13"
+    "vue-router": "^4.0.13",
+    "vue3-loading-screen": "^1.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

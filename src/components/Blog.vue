@@ -1,9 +1,4 @@
 <template>
-  <div class="row" style="clear: both">
-    <div class="col-md-8 offset-md-2">
-
-    </div>
-  </div>
   <div id="spi-blog" class="row">
     <div class="col-md-8 offset-md-2">
       <div class="card mb-3">
@@ -11,13 +6,13 @@
           <div class="card-body">
             <div class="card-text spi-card-content-img-left">
               <ul class="list-group">
-                <input v-model="filterSearch" class="form-control" placeholder="Search..." type="text">
-                <li v-for="(post, index) in filteredPosts" v-bind:key="index"
-                    :class="selected === index ? 'list-group-item active' : 'list-group-item'"
-                    @click="markdownToHtml(index, post.post)">
+                <input v-model="filterSearch" class="form-control" placeholder="Search..." type="text"/>
+                <li v-for="post in filteredPosts" v-bind:key="post.id"
+                    :class="selected === post.id ? 'list-group-item active' : 'list-group-item'"
+                    @click="viewPostContent(post.id)">
 
-                  <div class="meta-title" v-html="post.title"/>
-                  <div class="meta-desc" v-html="post.description"/>
+                  <div class="meta-title" v-html="shorten(post.title, 50)"/>
+                  <div class="meta-desc" v-html="shorten(post.description, 100)"/>
                   <div class="meta-author"><strong>Author:</strong> {{ post.author }}</div>
                   <div class="meta-date"><strong>Date:</strong> {{ post.date }}</div>
 
@@ -40,68 +35,71 @@
 <script>
 
 import {marked} from 'marked';
-import readMe from '@/assets/posts/README.md'
-import db from '@/assets/posts/db.md'
-import bps from '@/assets/posts/bps.md'
+import posts from '@/assets/posts/posts.json';
 
 export default {
   name: 'SPBlog',
   data() {
     return {
-      contents: [db, bps, readMe],
+      posts: [],
       content: '',
       filterSearch: '',
       selected: null
     };
   },
   methods: {
-    markdownToHtml(index, post) {
-      this.content = marked(post);
-      this.selected = index;
+    async viewPostContent(id) {
+      this.$isLoading(true);
+
+      const _post = this.posts.find(v => v.id === id);
+
+      const post = () => import(`@/assets/posts/${_post.file}.md`);
+
+      const postContent = await post();
+      this.content = marked(postContent.default)
+
+      this.selected = id;
+
+      this.$isLoading(false);
     },
-    mdToObject(post) {
-      return {
-        title: this.getTitle(post),
-        description: this.getDescription(post),
-        author: this.getAuthor(post),
-        date: this.getDate(post),
-        post: post
+    getUUID() {
+      return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
+          (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+      );
+    },
+    getFiles() {
+      this.$isLoading(true);
+
+      this.posts = posts.map(v => {
+        return {
+          id: this.getUUID(),
+          ...v
+        }
+      });
+
+      this.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+      this.$isLoading(false);
+    },
+    shorten(text, length) {
+      if (!text) {
+        return '';
+      } else if (text.length > length) {
+        return text.substring(0, length) + '...'
+      } else {
+        return text;
       }
-    },
-    getTitle(post) {
-      let metaStart = post.indexOf("<meta-title>") + 12;
-      let metaEnd = post.indexOf("</meta-title>");
-
-      return `${post.substring(metaStart, metaEnd)}`;
-    },
-    getAuthor(post) {
-      let metaStart = post.indexOf("<meta-author>") + 13;
-      let metaEnd = post.indexOf("</meta-author>");
-
-      return `${post.substring(metaStart, metaEnd)}`;
-    },
-    getDescription(post) {
-      let metaStart = post.indexOf("<meta-desc>") + 11;
-      let metaEnd = post.indexOf("</meta-desc>");
-
-      return `${post.substring(metaStart, metaEnd - metaStart > 100 ? metaStart + 100 : metaEnd)}${metaEnd - metaStart > 100 ? '...' : ''}`;
-    },
-    getDate(post) {
-      let metaStart = post.indexOf("<meta-date>") + 11;
-      let metaEnd = post.indexOf("</meta-date>");
-
-      return `${post.substring(metaStart, metaEnd)}`;
     }
   },
   computed: {
-    filteredPosts: function () {
+    filteredPosts() {
       if (this.filterSearch.length < 3) {
-        return this.contents;
+        return this.posts;
       }
 
       let search = this.filterSearch.toLowerCase();
 
-      let posts = this.contents.filter(v => v.title.toLowerCase().includes(search)
+      let posts = this.posts.filter(v => v.title.toLowerCase().includes(search)
           || v.description.toLowerCase().includes(search)
           || v.author.toLowerCase().includes(search));
 
@@ -111,11 +109,8 @@ export default {
     }
   },
   created() {
-    this.contents = this.contents.map(v => this.mdToObject(v));
-
-    this.contents.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-    this.markdownToHtml(0, this.contents[0].post);
+    this.getFiles();
+    this.viewPostContent(this.posts[0].id);
   }
 }
 </script>
