@@ -1,0 +1,52 @@
+{
+  "general": {
+    "background": "#0a192f",
+    "textColor": "#5a6681",
+    "txt_links": "#64ffda",
+    "txt_buttons": "#64ffda",
+    "buttonsBorders": "#64ffda",
+    "txt_colored": "#64ffda"
+  },
+  "navigation": {
+    "txt_menuIndexColor": "#ccd6f6"
+  },
+  "blog": {
+    "txt_searchFilter": "#ccd6f6",
+    "txt_postBoxTitle": "#64ffda",
+    "postBoxBorder": "#64ffda",
+    "txt_postBoxDesc": "#ccd6f6",
+    "bg_postBoxSelected": "#64ffda",
+    "txt_postBoxTitleSelected": "#0a192f",
+    "txt_postBoxDescSelected": "#0a192f",
+    "postBoxBorderSelected": "#64ffda",
+    "txt_postColor": "#ccd6f6"
+  },
+  "experience": {
+    "txt_company": "#64ffda",
+    "txt_companyRole": "#ccd6f6",
+    "bg_tags": "#64ffda",
+    "txt_tags": "#5a6681",
+    "companiesMenuBorder": "#64ffda",
+    "txt_companiesMenu": "#64ffda",
+    "companiesMenuBorderSelected": "#64ffda",
+    "txt_companiesMenuSelected": "#0a192f",
+    "bg_companiesMenuSelected": "#64ffda",
+    "descriptionArrows": "#64ffda"
+  },
+  "about": {
+    "txt_about": "#5a6681",
+    "passionsArrows": "#64ffda",
+    "img_overlay": "#64ffda"
+  },
+  "greetings": {
+    "txt_greetings": "#64ffda",
+    "txt_title": "#ccd6f6",
+    "txt_subTitle": "#8892b0",
+    "txt_caption": "#5a6681"
+  },
+  "footer": {
+    "txt_footer": "#5a6681",
+    "heart": "red"
+  }
+}
+

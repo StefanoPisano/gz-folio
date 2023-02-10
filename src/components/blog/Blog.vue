@@ -36,6 +36,8 @@
 
 import {marked} from 'marked';
 import posts from '@/assets/posts/posts.json';
+import Theme from "@/themes/default/theme.json";
+
 
 export default {
   name: 'SPBlog',
@@ -44,7 +46,8 @@ export default {
       posts: [],
       content: '',
       filterSearch: '',
-      selected: null
+      selected: null,
+      theme: Theme
     };
   },
   methods: {
@@ -89,7 +92,14 @@ export default {
       } else {
         return text;
       }
-    }
+    },
+    async loadTheme() {
+      if (this.$theme && this.$theme !== 'default') {
+        console.info("Loading %s theme.", this.$theme);
+        const themeLoad = () => import(`@/themes/${this.$theme}/theme.json`);
+        this.theme = await themeLoad();
+      }
+    },
   },
   computed: {
     filteredPosts() {
@@ -108,6 +118,9 @@ export default {
       return posts;
     }
   },
+  beforeMount() {
+    this.loadTheme();
+  },
   created() {
     this.getFiles();
     this.viewPostContent(this.posts[0].id);
@@ -118,20 +131,20 @@ export default {
 <style>
 input.form-control, input.form-control:focus {
   background: transparent;
-  color: #ccd6f6;
+  color: v-bind(theme.blog.txt_searchFilter);
 }
 
 input.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #ccd6f6;
+  color: v-bind(theme.blog.txt_searchFilter);
   opacity: 1; /* Firefox */
 }
 
 input.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
-  color: #ccd6f6;
+  color: v-bind(theme.blog.txt_searchFilter);
 }
 
 input.form-control::-ms-input-placeholder { /* Microsoft Edge */
-  color: #ccd6f6;
+  color: v-bind(theme.blog.txt_searchFilter);
 }
 
 #spi-blog {
@@ -139,7 +152,7 @@ input.form-control::-ms-input-placeholder { /* Microsoft Edge */
 }
 
 .spi-post {
-  color: #ccd6f6;
+  color: v-bind(theme.blog.txt_postColor);
 }
 
 meta-info {
@@ -147,30 +160,37 @@ meta-info {
 }
 
 .meta-title {
-  color: #64ffda;
+  color: v-bind(theme.blog.txt_postBoxTitle);
   font-size: 12px;
   font-weight: bold;
 }
 
 .meta-desc, .meta-author, .meta-date {
   font-size: 10px;
+  color: v-bind(theme.blog.txt_postBoxDesc)
 }
 
 .list-group li {
   background: transparent;
-  border-color: #64ffda;
+  border-color: v-bind(theme.blog.postBoxBorder);
   font-family: 'Noto Sans Mono', monospace;
-  color: #ccd6f6
 }
 
 .list-group li.active {
-  background: #64ffda;
-  color: #0a192f;
-  border-color: #64ffda;
+  background: v-bind(theme.blog.bg_postBoxSelected);
+  border-color: v-bind(theme.blog.postBoxBorderSelected);
 }
 
 .list-group li.active .meta-title {
-  color: #0a192f;
+  color: v-bind(theme.blog.txt_postBoxTitleSelected);
+}
+
+.list-group li.active .meta-author, .list-group li.active .meta-desc, .list-group li.active .meta-date {
+  color: v-bind(theme.blog.txt_postBoxDescSelected);
+}
+
+.list-group li.active .meta-title {
+  color: v-bind(theme.blog.txt_postBoxTitleSelected);
 }
 
 .spi-experience-values {
@@ -179,7 +199,6 @@ meta-info {
 
 @media (max-width: 1024px) {
   .meta-title {
-    color: #64ffda;
     font-size: 12px;
     font-weight: bold;
   }

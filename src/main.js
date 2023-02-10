@@ -5,6 +5,8 @@ import Loading from 'vue3-loading-screen'
 
 const app = createApp(App);
 
+app.config.globalProperties.$theme = 'default'
+
 app.use(Loading, {
 	bg: '#41b883ad',
 	slot: `

@@ -5,8 +5,8 @@
         <div class="card-body typewriter">
           <h6 class="greetings" v-text="greetings.greeting"/>
           <h1 class="card-title dev-name" v-text="greetings.title"/>
-          <h1 class="card-title card-title-2" v-text="greetings.subTitle"/>
-          <p class="card-text" v-html="greetings.caption"/>
+          <h1 class="card-title sub-title" v-text="greetings.subTitle"/>
+          <p class="card-text caption" v-html="greetings.caption"/>
         </div>
       </div>
     </div>
@@ -15,14 +15,27 @@
 
 <script>
 import Greetings from "./greetings.json";
+import Theme from "@/themes/default/theme.json";
 
 export default {
   name: 'SPGreetings',
   data() {
     return {
-      greetings: Greetings
+      greetings: Greetings,
+      theme: Theme
     }
-  }
+  },
+  methods: {
+    async loadTheme() {
+      if (this.$theme && this.$theme !== 'default') {
+        const themeLoad = () => import(`@/themes/${this.$theme}/theme.json`);
+        this.theme = await themeLoad();
+      }
+    },
+  },
+  beforeMount() {
+    this.loadTheme();
+  },
 }
 </script>
 
@@ -40,7 +53,7 @@ export default {
 
 .greetings {
   font-family: 'Noto Sans Mono', monospace;
-  color: #64ffda;
+  color: v-bind(theme.greetings.txt_greetings);
 }
 
 .card {
@@ -48,18 +61,19 @@ export default {
   border: none;
 }
 
-.card-title {
-  color: #ccd6f6;
+.dev-name {
+  color: v-bind(theme.greetings.txt_title);
   font-weight: 600;
   font-size: clamp(40px, 8vw, 80px);
 }
 
-.card-title-2 {
-  color: #8892b0;
+.sub-title {
+  color: v-bind(theme.greetings.txt_subTitle);
   font-size: clamp(40px, 8vw, 40px) !important;
 }
 
 .card-text {
+  color: v-bind(theme.greetings.txt_caption);
   font-size: 18px;
 }
 

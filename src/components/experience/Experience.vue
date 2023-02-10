@@ -4,7 +4,7 @@
       <div class="card">
         <div class="card-body">
           <div class="card-text spi-card-content-img-left">
-            <ul class="list-group">
+            <ul class="list-group companies">
               <li v-for="company in listOfCompanies"
                   v-bind:key="company.companyCode"
                   :class="selectedCompany.companyCode === company.companyCode ? 'list-group-item active' : 'list-group-item'"
@@ -12,7 +12,7 @@
               </li>
             </ul>
             <div class="spi-experience-values">
-              <div class="company-header">{{ selectedCompany.job }} @<span
+              <div class="company-role">{{ selectedCompany.job }} @<span
                   class="company-name">{{ selectedCompany.companyName }}</span></div>
               <div class="company-city">{{ selectedCompany.city }}</div>
               <div class="company-period">{{ selectedCompany.from }} - {{ selectedCompany.to }}</div>
@@ -34,14 +34,27 @@
 <script>
 
 import Experience from "./experience.json";
+import Theme from "@/themes/default/theme.json";
 
 export default {
   name: 'SPExperience',
   data() {
     return {
       listOfCompanies: Experience,
-      selectedCompany: {}
+      selectedCompany: {},
+      theme: Theme
     }
+  },
+  methods: {
+    async loadTheme() {
+      if (this.$theme && this.$theme !== 'default') {
+        const themeLoad = () => import(`@/themes/${this.$theme}/theme.json`);
+        this.theme = await themeLoad();
+      }
+    },
+  },
+  beforeMount() {
+    this.loadTheme();
   },
   created() {
     this.selectedCompany = this.listOfCompanies.find(v => v.default === true);
@@ -51,14 +64,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.company-header {
-  color: #ccd6f6;
+.company-role {
+  color: v-bind(theme.experience.txt_companyRole);
   font-weight: bolder;
   font-size: 24px
 }
 
 .company-name {
-  color: #64ffda;
+  color: v-bind(theme.experience.txt_company);
 }
 
 .company-period, .company-city {
@@ -71,7 +84,8 @@ export default {
   white-space: nowrap;
   font-size: 10px;
   margin: 0 2px;
-  background: #64ffda;
+  background: v-bind(theme.experience.bg_tags);
+  color: v-bind(theme.experience.txt_tags);
   width: 80px;
   border-radius: 2px;
   padding: 2px;
@@ -80,17 +94,17 @@ export default {
   font-weight: bold;
 }
 
-.list-group li {
+.companies li {
   background: transparent;
-  color: #64ffda;
-  border-color: #64ffda;
+  color: v-bind(theme.experience.txt_companiesMenu);
+  border-color: v-bind(theme.experience.companiesMenuBorder);
   font-family: 'Noto Sans Mono', monospace;
 }
 
-.list-group li.active {
-  background: #64ffda;
-  color: #0a192f;
-  border-color: #64ffda;
+.companies li.active {
+  background: v-bind(theme.experience.bg_companiesMenuSelected);
+  color: v-bind(theme.experience.txt_companiesMenuSelected);
+  border-color: v-bind(theme.experience.companiesMenuBorderSelected)
 }
 
 .spi-experience-values {
@@ -113,7 +127,7 @@ export default {
 
 .job-list li::before {
   content: "▹";
-  color: #64ffda;
+  color: v-bind(theme.experience.descriptionArrows);
   position: absolute;
   left: 0;
 }

@@ -13,37 +13,59 @@
 <script>
 import Navigation from '@/components/navigation/Navigation.vue';
 import Footer from "@/components/footer/Footer.vue";
+import Theme from "@/themes/default/theme.json";
 
 export default {
   name: 'App',
   components: {
     Navigation,
-    Footer
+    Footer,
+    // Theme: () => import(`@/themes/${this.$theme}/${this.$theme}.json`)
+  },
+  data() {
+    return {
+      theme: Theme,
+    }
+  },
+  methods: {
+    async loadTheme() {
+      if (this.$theme && this.$theme !== 'default') {
+        console.info("Loading %s theme.", this.$theme);
+        const themeLoad = () => import(`@/themes/${this.$theme}/theme.json`);
+        this.theme = await themeLoad();
+
+        this.setBodyStyle();
+      }
+    },
+    setBodyStyle() {
+      document.querySelector('body').style.backgroundColor = this.theme.general.background;
+      document.querySelector('body').style.color = this.theme.general.textColor;
+    }
+  },
+  beforeMount() {
+    this.setBodyStyle();
+
+    this.loadTheme();
   }
 }
 </script>
 
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 html, body {
   height: 100%;
   width: 100%;
   padding: 0;
   margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
-
 
 body {
-  background: #0a192f;
-  color: #5a6681;
   font-size: .9em;
   text-align: justify;
-}
-
-a {
-  font-family: 'Noto Sans Mono', monospace;
-  color: #64ffda !important;
 }
 
 #spi-router {
@@ -60,9 +82,9 @@ a {
 }
 
 .spi-button {
-  color: #64ffda;
+  color: v-bind(theme.general.txt_buttons);
   background-color: transparent;
-  border: 1px solid #64ffda;
+  border: 1px solid v-bind(theme.general.buttonsBorders);
   border-radius: 2px;
   padding: 1rem 1rem;
   font-size: 14px;
@@ -72,26 +94,14 @@ a {
   margin-top: 50px;
 }
 
-.spi-navigation-link {
-  font-size: 14px;
-  font-family: 'Noto Sans Mono', monospace;
-  border: none;
-  color: #64ffda;
-  background-color: transparent;
-  margin: 0 .5%;
-}
-
-.spi-navigation-link-disabled {
-  color: #ccd6f6;
-  text-decoration: line-through;
-}
-
-.spi-index {
-  font-family: 'Noto Sans Mono', monospace;
-  color: #ccd6f6;
-}
-
 .spi-link {
+  color: v-bind(theme.general.txt_links) !important;
+  font-family: 'Noto Sans Mono', monospace !important;
+}
+
+.spi-link-dotted {
+  color: v-bind(theme.general.txt_links);
+  font-family: 'Noto Sans Mono', monospace;
   text-decoration-style: dotted;
 }
 

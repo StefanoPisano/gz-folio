@@ -6,7 +6,7 @@
           <div class="card-body">
             <div class="spi-card-content-img-right">
               <div>
-                <div class="card-text" v-html="data.about"/>
+                <div class="card-text about" v-html="data.about"/>
                 <ul class="spi-list">
                   <li v-for="(passion, i) in data.passions" v-bind:key="i" v-text="passion"/>
                 </ul>
@@ -29,13 +29,26 @@
 <script>
 
 import About from "./about.json";
+import Theme from "@/themes/default/theme.json";
 
 export default {
   name: 'SPAbout',
   data() {
     return {
-      data: About
+      data: About,
+      theme: Theme
     }
+  },
+  methods: {
+    async loadTheme() {
+      if (this.$theme && this.$theme !== 'default') {
+        const themeLoad = () => import(`@/themes/${this.$theme}/theme.json`);
+        this.theme = await themeLoad();
+      }
+    },
+  },
+  beforeMount() {
+    this.loadTheme();
   }
 }
 </script>
@@ -63,13 +76,17 @@ export default {
 
 .spi-list li::before {
   content: "▹";
-  color: #64ffda;
+  color: v-bind(theme.about.passionsArrows);
   position: absolute;
   left: 0;
 }
 
+.about {
+  color: v-bind(theme.about.txt_about)
+}
+
 .colored-text {
-  color: #64ffda;
+  color: v-bind(theme.general.txt_colored);
 }
 
 .disabled-text {
@@ -79,7 +96,7 @@ export default {
 .img-wrapper {
   height: fit-content;
   border-radius: 10px;
-  background-color: #64ffda;
+  background-color: v-bind(theme.about.img_overlay);
 }
 
 .img-wrapper:hover {
