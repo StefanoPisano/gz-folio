@@ -18,9 +18,11 @@
 
                 </li>
               </ul>
-              <div class="spi-experience-values">
-                <div class="spi-experience-values">
-                  <div class="spi-post" v-html="content"></div>
+              <div class="blog-post-container">
+                <div class="blog-post">
+                  <h2 v-text="content.title"/>
+                  <hr/>
+                  <div class="spi-post" v-html="content.content"></div>
                 </div>
               </div>
             </div>
@@ -54,12 +56,15 @@ export default {
     async viewPostContent(id) {
       this.$isLoading(true);
 
-        const _post = this.posts.find(v => v.id === id);
+      const _post = this.posts.find(v => v.id === id);
 
       const post = () => import(`raw-loader!@/assets/posts/${_post.file}.md`);
 
       const postContent = await post();
-      this.content = marked(postContent.default)
+      this.content = {
+        title: _post.title,
+        content: marked(postContent.default)
+      }
 
       this.selected = id;
 
@@ -193,7 +198,7 @@ meta-info {
   color: v-bind(theme.blog.txt_postBoxTitleSelected);
 }
 
-.spi-experience-values {
+.blog-post {
   text-align: justify;
 }
 

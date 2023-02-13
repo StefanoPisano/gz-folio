@@ -19,8 +19,7 @@ export default {
   name: 'App',
   components: {
     Navigation,
-    Footer,
-    // Theme: () => import(`@/themes/${this.$theme}/${this.$theme}.json`)
+    Footer
   },
   data() {
     return {
