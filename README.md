@@ -1,6 +1,13 @@
 # :boom: The only portfolio framework that you will ever need: **gz-folio**
 
 ## A free, customizable and simple portfolio for everyone!
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) 
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
+<br/>
+
 The portfolio has been developed in order to be deployed inside GitHub pages.<br/>
 The main goal of this project is to have a user-friendly way to create a personal portfolio full of features such as:<br/>
 - Brief introduction of yourself.
