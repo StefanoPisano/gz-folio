@@ -10,11 +10,10 @@ The main goal of this project is to have a user-friendly way to create a persona
 - Add your Curriculum Vitae pdf within the portfolio.
 - Mobile friendly.
 <br/>
-<br/>
+It does not require any backend or database integration, it is full front end!
+<br/><br/>
 
 :satellite: Live Demo: [Click me!](https://stefanopisano.github.io/gz-folio/#/) 
-
-It does not require any backend or database integration, it is full front end!
 
 ### 🌱 What's next
 I am currently working on adding new features like:
