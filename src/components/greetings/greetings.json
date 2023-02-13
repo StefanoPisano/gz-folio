@@ -2,5 +2,6 @@
   "greeting": "Hi! :)",
   "title": "The Title.",
   "subTitle": "The subtitle.",
-  "caption": "A catch phrase for any visitor :D"
+  "caption": "A catch phrase for any visitor :D",
+  "resumeEnabled": true
 }

@@ -47,6 +47,10 @@ I don't want you to waste time inside HTML tags and vue components, I want you t
 You will be able to do that by editing some simple `json` files, one for every section.<br/>
 Please do not remove credits from the footer one :)
 
+### Resume
+You can set a download link for your curriculum vitae by simply adding a file called `resume.pdf` inside the `public/resume` folder. <br/>
+If you don't need it you can disable it by simply disabling the property inside `src/components/greetings/greetings.json`
+
 ### Blog
 Blog articles should be written in **Markdown** language and they should be put inside the folder `src/assets/posts`. <br/>
 Inside that folder you will find another `json` file, in order to make an article available to your audience you will need to edit this file and add an entry to that providing simple informations like the author, the date, a title and a description. <br/>
