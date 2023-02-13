@@ -1,7 +1,7 @@
 # :boom: The only portfolio framework that you will ever need: **gz-folio**
 
 ## A free, customizable and simple portfolio for everyone!
-The portfolio has been developed in order to be built inside GitHub pages.<br/>
+The portfolio has been developed in order to be deployed inside GitHub pages.<br/>
 The main goal of this project is to have a user-friendly way to create a personal portfolio full of features such as:<br/>
 - Brief introduction of yourself.
 - Work experiences with skills divided by work place.
@@ -9,6 +9,8 @@ The main goal of this project is to have a user-friendly way to create a persona
 - Email and other relevant point of contacts.
 - Add your Curriculum Vitae pdf within the portfolio.
 - Mobile friendly.
+
+It does not require any backend or database integration, it is full front end!
 
 ### 🌱 What's next
 I am currently working on adding new features like:
