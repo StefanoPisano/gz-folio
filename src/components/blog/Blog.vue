@@ -54,9 +54,9 @@ export default {
     async viewPostContent(id) {
       this.$isLoading(true);
 
-      const _post = this.posts.find(v => v.id === id);
+        const _post = this.posts.find(v => v.id === id);
 
-      const post = () => import(`@/assets/posts/${_post.file}.md`);
+      const post = () => import(`raw-loader!@/assets/posts/${_post.file}.md`);
 
       const postContent = await post();
       this.content = marked(postContent.default)

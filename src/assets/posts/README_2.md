@@ -1,7 +1,5 @@
 # READ ME 2
 
-![](../posts/assets/readme/post_image.jpg)
-
 # h1 Heading 8-)
 
 ## h2 Heading
