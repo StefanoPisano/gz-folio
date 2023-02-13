@@ -2,27 +2,28 @@
 
 ## A free, customizable and simple portfolio for everyone!
 The portfolio has been developed in order to be built inside GitHub pages.<br/>
-The main goal of this project is to have a user-friendly way to create a personal portfolio where you will be able to add sections as:<br/>
+The main goal of this project is to have a user-friendly way to create a personal portfolio full of features such as:<br/>
 - Brief introduction of yourself.
 - Work experiences with skills divided by work place.
-- Blog section, easy to use.
+- A clean Blog space easy to setup.
 - Email and other relevant point of contacts.
 - Add your Curriculum Vitae pdf within the portfolio.
+- Mobile friendly.
 
-### What's next
+### 🌱 What's next
 I am currently working on adding new features like:
-- Photo Gallery.
-- Work Projects.
-- Realtime themes previews.
+- [ ] Photo Gallery.
+- [ ] Work Projects.
+- [ ] Realtime themes previews.
 
-### Technologies & Programming stuff
+### :computer: Technologies & Programming stuff
 
 - **Vue 4** as main JavaScript framework. 
 - **Markdown** as reference for blog posts.
 - **HTML**
 - **CSS**
 
-### How to run
+### :hammer: How to run
 1. Clone this repository into your local environment.
 2. Edit entry `"name": "gz-folio"` in your package.json file, give a proper name to it!
 3. Run `npm install`
@@ -30,7 +31,7 @@ I am currently working on adding new features like:
 5. Open *localhost:8080* or whichever url it will be prompt in the console and see if it is working correctly.
 6. Push it to your repository with a nice name for your personal portfolio.
 
-### Sections
+### :file_folder: Sections
 The portfolio is highly customizable, if you don't need a particular route (menu entry), you can deactivate it using the configuration inside `src/router/routing-toggle.json` <br/>
 The configuration should be straightforward, every entry can be enabled or disabled using the boolean value:
 
@@ -43,16 +44,16 @@ The configuration should be straightforward, every entry can be enabled or disab
 By changing the **label** value you will modify the label on the navigation menu. 
 
 
-### Portfolio Content
+### :pencil2: Portfolio Content
 I don't want you to waste time inside HTML tags and vue components, I want you to only focus on the content of your portfolio.
 You will be able to do that by editing some simple `json` files, one for every section.<br/>
 Please do not remove credits from the footer one :)
 
-### Resume
+### :envelope: Resume
 You can set a download link for your curriculum vitae by simply adding a file called `resume.pdf` inside the `public/resume` folder. <br/>
 If you don't need it you can disable it by simply disabling the property inside `src/components/greetings/greetings.json`
 
-### Blog
+### :newspaper: Blog
 Blog articles should be written in **Markdown** language and they should be put inside the folder `src/assets/posts`. <br/>
 Inside that folder you will find another `json` file, in order to make an article available to your audience you will need to edit this file and add an entry to that providing simple informations like the author, the date, a title and a description. <br/>
 Articles will be sorted automatically based on the dates.
@@ -66,7 +67,7 @@ At the moment the blog does not support embedding local images but you can alway
 
 **Reference**: https://www.markdownguide.org/
 
-### Color schemes
+### :rainbow: Color schemes
 GZ-folio supports also color schemes, by default you fill find two different themes, a light and a dark one. <br/>
 Don't worry, you will be able to choose your personal palette creating a new folder inside `src/themes`. <br/>
 For simplicity, the theme will be a `json` file and its name should be `default.json`.
@@ -76,7 +77,7 @@ In order to be able to see the newly created theme you should do one last thing:
 2. Look for `app.config.globalProperties.$theme = 'default'` 
 3. Replace `default` with the name of your theme (the directory name)
 
-### Deploy
+### :rocket: Deploy
 Also this one is simple, too simple :D
 
 1. Open the script `deploy.sh`.
@@ -84,4 +85,4 @@ Also this one is simple, too simple :D
 3. Replace `your-git-repository` with the name of your repository.
 4. Run `npm run deploy`
 
-
+You can use this script to deploy it on GitHub pages but the portfolio should work on any host.
