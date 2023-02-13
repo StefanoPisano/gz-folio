@@ -7,6 +7,7 @@ The main goal of this project is to have a user-friendly way to create a persona
 - Work experiences with skills divided by work place.
 - Blog section, easy to use.
 - Email and other relevant point of contacts.
+- Add your Curriculum Vitae pdf within the portfolio.
 
 ### What's next
 I am currently working on adding new features like:
