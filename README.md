@@ -7,6 +7,10 @@ The main goal of this project is to have a user-friendly way to create a persona
 - Work experiences with skills divided by work place.
 - Blog section, easy to use.
 - Email and other relevant point of contacts.
+<br/>
+<br/>
+
+:satellite: Live Demo: [Click me!](https://stefanopisano.github.io/gz-folio/#/) 
 
 ### What's next
 I am currently working on adding new features like:
@@ -81,6 +85,8 @@ Also this one is simple, too simple :D
 1. Open the script `deploy.sh`.
 2. Look for `git push -f your-git-repository master:gh-pages`.
 3. Replace `your-git-repository` with the name of your repository.
-4. Run `npm run deploy`
+4. Open `vue.config.js` file and replace `gz-folio` with the name of your repository.
+5. Run `npm run deploy`
+6. Follow the deployment process on Github Actions
 
 
