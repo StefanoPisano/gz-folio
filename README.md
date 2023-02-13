@@ -15,6 +15,13 @@ It does not require any backend or database integration, it is full front end!
 
 :satellite: Live Demo: [Click me!](https://stefanopisano.github.io/gz-folio/#/) 
 
+<br/>
+
+Some real world examples: 
+- [Stefano Pisano](https://stefanopisano.github.io/portfolio/#/) 
+
+Feel free to send me your portfolio link, I will add it to the list :)
+
 ### 🌱 What's next
 I am currently working on adding new features like:
 - [ ] Photo Gallery.
