@@ -1,4 +1,4 @@
-# gz-folio
+# :boom: The only portfolio framework that you will ever need: **gz-folio**
 
 ## A free, customizable and simple portfolio for everyone!
 The portfolio has been developed in order to be built inside GitHub pages.<br/>
