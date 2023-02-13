@@ -27,6 +27,6 @@
     "name": "SPBlog",
     "label": "Blog",
     "path": "/blog",
-    "enabled": false
+    "enabled": true
   }
 ]
