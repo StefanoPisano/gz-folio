@@ -7,7 +7,7 @@
           <h1 class="card-title dev-name" v-text="greetings.title"/>
           <h1 class="card-title sub-title" v-text="greetings.subTitle"/>
           <p class="card-text caption" v-html="greetings.caption"/>
-          <p class="card-text caption" v-if="greetings.resumeEnabled"><a class="btn btn-dark spi-button" href="/resume/resume.pdf" target="_blank">Check out my Resume!</a></p>
+          <p class="card-text caption" v-if="greetings.resumeEnabled"><a class="btn btn-dark spi-button" href="./resume/resume.pdf" target="_blank">Check out my Resume!</a></p>
         </div>
       </div>
     </div>
