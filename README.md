@@ -1,20 +1,33 @@
 # :boom: The only portfolio framework that you will ever need: **gz-folio**
 
 ## A free, customizable and simple portfolio for everyone!
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) 
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Markdown](https://img.shields.io/badge/markdown-%23000000.svg?style=for-the-badge&logo=markdown&logoColor=white)
+<br/>
+
 The portfolio has been developed in order to be deployed inside GitHub pages.<br/>
 The main goal of this project is to have a user-friendly way to create a personal portfolio full of features such as:<br/>
-- Brief introduction of yourself.
+- Brief introduction about yourself.
 - Work experiences with skills divided by work place.
 - A clean Blog space easy to setup.
 - Email and other relevant point of contacts.
 - Add your Curriculum Vitae pdf within the portfolio.
 - Mobile friendly.
 <br/>
-<br/>
+It does not require any backend or database integration, it is full front end!
+<br/><br/>
 
 :satellite: Live Demo: [Click me!](https://stefanopisano.github.io/gz-folio/#/) 
 
-It does not require any backend or database integration, it is full front end!
+<br/>
+
+Some real world examples: 
+- [Stefano Pisano](https://stefanopisano.github.io/portfolio/#/) 
+
+Feel free to send me your portfolio link at spisano@protonmail.com, I will add it to the list :)
 
 ### 🌱 What's next
 I am currently working on adding new features like:
@@ -63,7 +76,7 @@ If you don't need it you can disable it by simply disabling the property inside 
 Blog articles should be written in **Markdown** language and they should be put inside the folder `src/assets/posts`. <br/>
 Inside that folder you will find another `json` file, in order to make an article available to your audience you will need to edit this file and add an entry to that providing simple informations like the author, the date, a title and a description. <br/>
 Articles will be sorted automatically based on the dates.
-Titles and descriptions will be automatically truncated if their length is grater than:
+Titles and descriptions will be automatically truncated if their length is greater than:
 - **Title**: 50 characters
 - **Description**: 100 characters
 
