@@ -10,7 +10,7 @@
 
 The portfolio has been developed in order to be deployed inside GitHub pages.<br/>
 The main goal of this project is to have a user-friendly way to create a personal portfolio full of features such as:<br/>
-- Brief introduction of yourself.
+- Brief introduction about yourself.
 - Work experiences with skills divided by work place.
 - A clean Blog space easy to setup.
 - Email and other relevant point of contacts.
