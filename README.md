@@ -107,3 +107,9 @@ Also this one is simple, too simple :D
 6. Follow the deployment process on Github Actions
 
 You can use this script to deploy it on GitHub pages but the portfolio should work on any host.
+
+### :pushpin: Keep it updated!
+Inside the portfolio you will find a file named `gz-folio-update.sh`, execute it by simply running the following command inside the terminal `sh gz-folio-update.sh` inside the portfolio directory.
+This will fetch latest updates on the portfolio. <br/>
+Be aware that this will also overwrite any changes you did on the vue files (not the json ones). <br/>
+It will also update a file named `CHANGELOG.md` with latest changes.
