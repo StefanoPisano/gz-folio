@@ -8,4 +8,4 @@ git checkout main-repo/main -- babel.config.js
 git checkout main-repo/main -- CHANGELOG.md
 
 
-git commit package.json ./*.vue jsconfig.json src/router/routes.js public/index.html babel.config.js CHANGELOG.md -m "build(gz-folio): upgrade of gz-folio framework"
+git commit gz-f-update.sh package.json ./*.vue jsconfig.json src/router/routes.js public/index.html babel.config.js CHANGELOG.md -m "build(gz-folio): upgrade of gz-folio framework"
