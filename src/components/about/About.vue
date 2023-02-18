@@ -141,7 +141,7 @@ export default {
 
 .music a {
   white-space: nowrap;
-  width:350px
+  width:400px
 }
 
 .favourite-label {
@@ -151,7 +151,7 @@ export default {
 
 .favourite-artist, .favourite-title {
   font-family: 'Noto Sans Mono', monospace;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .favourite-artist {
