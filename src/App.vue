@@ -84,7 +84,7 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
 html, body {
   scroll-behavior: smooth;
   height: 100%;
@@ -114,6 +114,10 @@ body {
 .card {
   background: transparent;
   border: none;
+}
+
+.card-header {
+  background: transparent;
 }
 
 .spi-card-title-border {

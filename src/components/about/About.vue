@@ -1,18 +1,20 @@
 <template>
-  <section id="about" class="row gz-box">
-    <div class="col-md-8 offset-md-2">
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="card-body">
-            <div class="spi-card-content-img-right">
-              <div>
-                <div class="card-text about" v-html="data.about"/>
-                <ul class="spi-list">
-                  <li v-for="(passion, i) in data.passions" v-bind:key="i" v-text="passion"/>
-                </ul>
-              </div>
-              <div class="img-wrapper">
-                <div class="img-container">
+  <section id="about" class="gz-box">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="card mb-3">
+          <div class="row g-0">
+            <div class="card-body">
+              <div class="spi-card-content-img-right">
+                <div>
+                  <div class="card-text about" v-html="about.about"/>
+                  <ul class="spi-list">
+                    <li v-for="(passion, i) in about.passions" v-bind:key="i" v-text="passion"/>
+                  </ul>
+                </div>
+                <div class="img-wrapper">
+                  <div class="img-container">
+                  </div>
                 </div>
               </div>
             </div>
@@ -20,7 +22,18 @@
         </div>
       </div>
     </div>
+    <div class="row music" v-for="(favourite, index) in about.listOfFavourites" v-bind:key="index">
+      <div class="col-md-8 offset-md-2">
+        <a :href="favourite.link" class="btn btn-dark spi-button" type="button">
+          <span class="favourite-label" v-text="favourite.label"/><br/><br/>
+          <font-awesome-icon icon="fas fa-headphones"/>
+          <span class="favourite-title" v-text="favourite.title"/> by <span class="favourite-artist"
+                                                                            v-text="favourite.artist"/>
+        </a>
+      </div>
+    </div>
   </section>
+
 </template>
 
 <script>
@@ -32,8 +45,8 @@ export default {
   name: 'GZAbout',
   data() {
     return {
-      data: About,
-      theme: Theme
+      about: About,
+      theme: Theme,
     }
   },
   methods: {
@@ -51,6 +64,10 @@ export default {
 </script>
 
 <style>
+#about .row {
+  margin-bottom: 10px;
+}
+
 .spi-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(140px, 250px));
@@ -111,9 +128,38 @@ export default {
   max-width: 100%;
   vertical-align: middle;
   mix-blend-mode: multiply;
-  background-image: url("@/assets/img/avatar_00.jpg");
+  background-image: url("@/assets/img/about.png");
   background-size: cover;
   height: 400px;
   background-position: center;
+}
+
+
+.music {
+  text-align: center;
+}
+
+.music a {
+  white-space: nowrap;
+  width:350px
+}
+
+.favourite-label {
+  font-size: 18px;
+  color: #ccd6f6
+}
+
+.favourite-artist, .favourite-title {
+  font-family: 'Noto Sans Mono', monospace;
+  font-size: 14px;
+}
+
+.favourite-artist {
+  color: #8892b0;
+}
+
+.favourite-title {
+  color: #64ffda;
+  margin-left: 10px
 }
 </style>

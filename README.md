@@ -1,3 +1,5 @@
+![GZ-Folio Logo](./logo.png)
+
 # :boom: The only portfolio framework that you will ever need: **gz-folio**
 
 ## A free, customizable and simple portfolio for everyone!

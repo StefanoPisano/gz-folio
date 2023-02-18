@@ -1,6 +1,9 @@
 <template id="/">
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
     <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="@/assets/img/logo_navbar.png" alt="" height="24">
+      </a>
       <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
               data-target="#navbarNav" data-toggle="collapse" type="button"
               @click="visible=!visible">

@@ -7,5 +7,25 @@
     "Passion no 4",
     "Passion no 5",
     "Passion no 6"
+  ],
+  "listOfFavourites": [
+    {
+      "label": "Favorite song while working",
+      "title": "aaa",
+      "artist": "bbb",
+      "link": ""
+    },
+    {
+      "label": "Favorite song while in gym",
+      "title": "aaa",
+      "artist": "bbb",
+      "link": ""
+    },
+    {
+      "label": "Favorite song for chilling out",
+      "title": "aaa",
+      "artist": "bbb",
+      "link": ""
+    }
   ]
 }
