@@ -118,6 +118,7 @@ body {
 
 .card-header {
   background: transparent;
+  border: none
 }
 
 .spi-card-title-border {
