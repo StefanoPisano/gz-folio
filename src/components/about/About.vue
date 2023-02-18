@@ -141,7 +141,7 @@ export default {
 
 .music a {
   white-space: nowrap;
-  width:400px
+  width:40%
 }
 
 .favourite-label {
