@@ -54,7 +54,7 @@ I am currently working on adding new features like:
 The portfolio is highly customizable, if you don't need a particular route (menu entry), you can deactivate it using the configuration inside `src/router/routing-toggle.json` <br/>
 The configuration should be straightforward, every entry can be enabled or disabled using the boolean value:
 
-    "name": "SPBlog",
+    "name": "GZBlog",
     "label": "Blog",
     "path": "/blog",
     "enabled": true/false

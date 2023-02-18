@@ -1,4 +1,3 @@
-import * as VueRouter from 'vue-router'
 
 import RouterToggle from '@/router/routing-toggle.json';
 import Greetings from '@/components/greetings/Greetings.vue';
@@ -13,15 +12,11 @@ const routes = components
 	.map(v => {
 		const route = RouterToggle.find(ft => v.name === ft.name);
 		return {
-			label: route.label,
-			path: route.path,
+			...route,
 			name: v.name,
 			component: v
 		};
 	});
-const router = VueRouter.createRouter({
-	history: VueRouter.createWebHashHistory(),
-	routes
-});
 
-export default router
+
+export default routes

@@ -1,5 +1,5 @@
 <template>
-  <div id="spi-about" class="row">
+  <section id="about" class="row gz-box">
     <div class="col-md-8 offset-md-2">
       <div class="card mb-3">
         <div class="row g-0">
@@ -13,9 +13,6 @@
               </div>
               <div class="img-wrapper">
                 <div class="img-container">
-                  <picture>
-                    <img alt="..." class="img-fluid rounded-start" src="@/assets/img/avatar_00.jpg">
-                  </picture>
                 </div>
               </div>
             </div>
@@ -23,7 +20,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -32,7 +29,7 @@ import About from "./about.json";
 import Theme from "@/themes/default/theme.json";
 
 export default {
-  name: 'SPAbout',
+  name: 'GZAbout',
   data() {
     return {
       data: About,
@@ -114,5 +111,9 @@ export default {
   max-width: 100%;
   vertical-align: middle;
   mix-blend-mode: multiply;
+  background-image: url("@/assets/img/avatar_00.jpg");
+  background-size: cover;
+  height: 400px;
+  background-position: center;
 }
 </style>

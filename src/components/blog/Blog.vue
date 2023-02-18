@@ -1,6 +1,6 @@
 <template>
-  <div id="spi-blog" class="row">
-    <div class="col-md-8 offset-md-2">
+  <section id="spi-blog" class="row gz-box">
+    <div class="col-md-12">
       <div class="card mb-3">
         <div class="row g-0">
           <div class="card-body">
@@ -31,7 +31,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -42,7 +42,7 @@ import Theme from "@/themes/default/theme.json";
 
 
 export default {
-  name: 'SPBlog',
+  name: 'GZBlog',
   data() {
     return {
       posts: [],

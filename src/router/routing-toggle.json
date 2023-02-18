@@ -1,32 +1,33 @@
 [
   {
-    "name": "SPGreetings",
+    "name": "GZGreetings",
     "label": "Home",
-    "path": "/",
+    "path": "home",
     "enabled": true
   },
   {
-    "name": "SPAbout",
+    "name": "GZAbout",
     "label": "About",
-    "path": "/about",
+    "path": "about",
     "enabled": true
   },
   {
-    "name": "SPExperience",
+    "name": "GZExperience",
     "label": "Experience",
-    "path": "/experience",
+    "path": "experience",
     "enabled": true
   },
   {
-    "name": "SPContacts",
+    "name": "GZContacts",
     "label": "Contacts",
-    "path": "/contacts",
+    "path": "contacts",
     "enabled": true
   },
   {
-    "name": "SPBlog",
+    "name": "GZBlog",
     "label": "Blog",
-    "path": "/blog",
-    "enabled": true
+    "path": "blog",
+    "enabled": true,
+    "fullScreen": true
   }
 ]

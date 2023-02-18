@@ -1,9 +1,6 @@
-<template>
+<template id="/">
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark">
     <div class="container-fluid">
-      <router-link class="nav-link spi-link" to="/" @click="visible = false">
-        <img alt="" class="d-inline-block align-text-top" height="30" src="../../assets/img/avlogo.png" width="30">
-      </router-link>
       <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
               data-target="#navbarNav" data-toggle="collapse" type="button"
               @click="visible=!visible">
@@ -12,10 +9,10 @@
 
       <div id="navContent" :class="!visible?'collapse':'nav-opened'" class="navbar-collapse">
         <ul class="navbar-nav mr-auto">
-          <li v-for="(route, i) in routes" v-bind:key="route.name" class="nav-item">
-            <router-link :to="route.path" class="nav-link spi-link" @click="visible = false"><span
+          <li v-for="(route, i) in enabledRoutes" v-bind:key="route.name" class="nav-item">
+            <a :href="'#' + route.path" class="nav-link spi-link" @click="goTo(route)"><span
                 class="spi-index">{{ i + 1 }}.</span> {{ route.label }}
-            </router-link>
+            </a>
           </li>
         </ul>
       </div>
@@ -27,10 +24,10 @@
 import Theme from "@/themes/default/theme.json";
 
 export default {
-  name: 'SPNavigation',
+  name: 'GZNavigation',
   data() {
     return {
-      routes: this.$router.options.routes,
+      routes: this.$routes,
       visible: false,
       theme: Theme
     }
@@ -42,6 +39,16 @@ export default {
         this.theme = await themeLoad();
       }
     },
+    goTo(route) {
+      this.visible = false;
+
+      this.$emit("goTo", route)
+    }
+  },
+  computed: {
+    enabledRoutes() {
+      return this.routes.filter(v => v.enabled)
+    }
   },
   beforeMount() {
     this.loadTheme();

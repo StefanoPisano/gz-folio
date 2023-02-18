@@ -1,17 +1,20 @@
 <template>
-  <div id="spi-experience" class="row">
+  <section id="experience" class="row gz-box">
     <div class="col-md-8 offset-md-2">
       <div class="card">
+        <div class="card-header">
+          <div class="companies">
+            <div v-for="company in listOfCompanies"
+                v-bind:key="company.companyCode"
+                :class="selectedCompany.companyCode === company.companyCode ? 'active' : ''"
+                @click="selectedCompany = company">{{ company.label }}
+            </div>
+          </div>
+        </div>
+
         <div class="card-body">
-          <div class="card-text spi-card-content-img-left">
-            <ul class="list-group companies">
-              <li v-for="company in listOfCompanies"
-                  v-bind:key="company.companyCode"
-                  :class="selectedCompany.companyCode === company.companyCode ? 'list-group-item active' : 'list-group-item'"
-                  @click="selectedCompany = company">{{ company.label }}
-              </li>
-            </ul>
-            <div class="spi-experience-values">
+          <div class="card-text">
+            <div class="gz-experience-values">
               <div class="company-role">{{ selectedCompany.job }} @<span
                   class="company-name">{{ selectedCompany.companyName }}</span></div>
               <div class="company-city">{{ selectedCompany.city }}</div>
@@ -28,7 +31,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -37,7 +40,7 @@ import Experience from "./experience.json";
 import Theme from "@/themes/default/theme.json";
 
 export default {
-  name: 'SPExperience',
+  name: 'GZExperience',
   data() {
     return {
       listOfCompanies: Experience,
@@ -65,6 +68,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .company-role {
+  text-align: center;
   color: v-bind(theme.experience.txt_companyRole);
   font-weight: bolder;
   font-size: 24px
@@ -75,8 +79,13 @@ export default {
 }
 
 .company-period, .company-city {
+  text-align: center;
   font-family: 'Noto Sans Mono', monospace;
   font-size: 12px;
+}
+
+.job-tags {
+  text-align: center;
 }
 
 .job-tags div {
@@ -92,22 +101,35 @@ export default {
   display: inline-block;
   text-align: center;
   font-weight: bold;
+
 }
 
-.companies li {
+.companies {
+  text-align: center;
+}
+
+.companies div {
   background: transparent;
   color: v-bind(theme.experience.txt_companiesMenu);
-  border-color: v-bind(theme.experience.companiesMenuBorder);
+  border: 1px solid v-bind(theme.experience.companiesMenuBorder);
   font-family: 'Noto Sans Mono', monospace;
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 64px;
+  text-align: center;
+  margin: 1%
 }
 
-.companies li.active {
+.companies div.active {
   background: v-bind(theme.experience.bg_companiesMenuSelected);
   color: v-bind(theme.experience.txt_companiesMenuSelected);
   border-color: v-bind(theme.experience.companiesMenuBorderSelected)
 }
 
-.spi-experience-values {
+.gz-experience-values {
   text-align: justify;
 }
 
@@ -117,6 +139,9 @@ export default {
   overflow: hidden;
   list-style: none;
   font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .job-list li {

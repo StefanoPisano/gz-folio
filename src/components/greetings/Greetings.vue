@@ -1,5 +1,5 @@
 <template>
-  <div id="spi-header" class="row">
+  <section id="home" class="row gz-box">
     <div class="col-md-8 offset-md-2">
       <div class="card">
         <div class="card-body typewriter">
@@ -11,7 +11,8 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
+  <a class="scroll-down" href="#about"></a>
 </template>
 
 <script>
@@ -19,7 +20,7 @@ import Greetings from "./greetings.json";
 import Theme from "@/themes/default/theme.json";
 
 export default {
-  name: 'SPGreetings',
+  name: 'GZGreetings',
   data() {
     return {
       greetings: Greetings,
@@ -42,7 +43,7 @@ export default {
 
 <style scoped>
 
-#spi-header {
+#home {
   display: flex;
   -moz-box-pack: center;
   justify-content: center;
@@ -50,6 +51,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   padding: 0;
+  height: 100vh;
 }
 
 .greetings {
@@ -83,6 +85,43 @@ export default {
   white-space: nowrap;
   width: 0;
   animation: typing 3s steps(30, end) forwards;
+}
+
+.scroll-down {
+  position: relative;
+  left: 50%;
+  bottom:150px;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  text-decoration: none;
+  width: 25px;
+  height: 25px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  -webkit-transform: translate(-50%, 0%) rotate(45deg);
+  -moz-transform: translate(-50%, 0%) rotate(45deg);
+  transform: translate(-50%, 0%) rotate(45deg);
+  -webkit-animation: fade_move_down 4s ease-in-out infinite;
+  -moz-animation:    fade_move_down 4s ease-in-out infinite;
+  animation:         fade_move_down 4s ease-in-out infinite;
+}
+
+/*animated scroll arrow animation*/
+@-webkit-keyframes fade_move_down {
+  0%   { -webkit-transform:translate(0,-10px) rotate(45deg); opacity: 0;  }
+  50%  { opacity: 1;  }
+  100% { -webkit-transform:translate(0,10px) rotate(45deg); opacity: 0; }
+}
+@-moz-keyframes fade_move_down {
+  0%   { -moz-transform:translate(0,-10px) rotate(45deg); opacity: 0;  }
+  50%  { opacity: 1;  }
+  100% { -moz-transform:translate(0,10px) rotate(45deg); opacity: 0; }
+}
+@keyframes fade_move_down {
+  0%   { transform:translate(0,-10px) rotate(45deg); opacity: 0;  }
+  50%  { opacity: 1;  }
+  100% { transform:translate(0,10px) rotate(45deg); opacity: 0; }
 }
 
 @keyframes typing {
