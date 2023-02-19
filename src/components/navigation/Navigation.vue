@@ -6,7 +6,7 @@
       </a>
       <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
               data-target="#navbarNav" data-toggle="collapse" type="button"
-              @click="visible=!visible">
+              @click="toggleNavBar">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -46,6 +46,14 @@ export default {
       this.visible = false;
 
       this.$emit("goTo", route)
+    },
+    toggleNavBar() {
+      this.visible=!this.visible;
+    }
+  },
+  watch: {
+    visible() {
+      document.getElementsByTagName("body")[0].style.position = this.visible ? 'fixed' : ''
     }
   },
   computed: {

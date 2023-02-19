@@ -124,7 +124,7 @@ export default {
 
 #about .music a {
   white-space: nowrap;
-  width:350px
+  width:350px;
 }
 
 #about .favourite-label {
@@ -146,4 +146,25 @@ export default {
   color: v-bind(theme.general.accent);
   margin-left: 10px
 }
+
+@media (max-width: 350px) {
+  #about .gz-list {
+    grid-template-columns: auto;
+  }
+
+  #about .favourite-label{
+    font-size: 12px;
+  }
+
+  #about .favourite-artist, #about .favourite-title, #about .music a {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  #about .music a {
+    width:100%
+  }
+}
+
 </style>

@@ -192,13 +192,8 @@ body {
     grid-template-columns: 100%;
   }
 
-  .gz-card-content-img-right :nth-child(2) {
+  .gz-card-content-img-right div:nth-child(2) {
     grid-area: 1;
-  }
-
-  .gz-card-content-img-right div:nth-child(2) img {
-    border-radius: 0 !important;
-    margin: auto;
   }
 }
 </style>

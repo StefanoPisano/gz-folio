@@ -4,4 +4,4 @@
 <hr>
 
 **Name** : gz-folio updates <br/>
-**Description** : improved responsiveness of the blog, updated readme, renamed some classes
+**Description** : order of passions in about sessions, improved responsiveness, block scrolling while opening menu in mobile version.
