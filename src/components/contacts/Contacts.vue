@@ -7,7 +7,7 @@
             <h2 class="gz-title-section">Get in Touch!</h2>
             <p class="card-text" >
               <template v-for="(contact, i) in contacts" v-bind:key="i">
-                <a :href="contact.link" class="btn btn-dark spi-button" type="button" v-text="contact.label"/>
+                <a :href="contact.link" class="btn btn-dark gz-button" type="button" v-text="contact.label"/>
               </template>
             </p>
           </div>

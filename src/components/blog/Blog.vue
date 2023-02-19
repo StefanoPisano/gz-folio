@@ -1,33 +1,35 @@
 <template>
-  <section id="spi-blog" class="row gz-box">
-    <div class="col-md-12">
-      <div class="card mb-3">
-        <div class="row g-0">
-          <div class="card-body">
-            <div class="card-text spi-card-content-img-left">
-              <ul class="list-group">
-                <input v-model="filterSearch" class="form-control" placeholder="Search..." type="text"/>
-                <li v-for="post in filteredPosts" v-bind:key="post.id"
-                    :class="selected === post.id ? 'list-group-item active' : 'list-group-item'"
-                    @click="viewPostContent(post.id)">
+  <section id="gz-blog" class="gz-box">
+    <div class="row">
+      <div class="col-md-4 offset-md-4">
+        <ul class="list-group" v-if="!content">
+          <input v-model="filterSearch" class="form-control" placeholder="Search..." type="text"/>
+          <li v-for="post in filteredPosts" v-bind:key="post.id"
+              :class="selected === post.id ? 'list-group-item active' : 'list-group-item'"
+              @click="viewPostContent(post.id)">
 
-                  <div class="meta-title" v-html="shorten(post.title, 50)"/>
-                  <div class="meta-desc" v-html="shorten(post.description, 100)"/>
-                  <div class="meta-author"><strong>Author:</strong> {{ post.author }}</div>
-                  <div class="meta-date"><strong>Date:</strong> {{ post.date }}</div>
+            <div class="gz-title" v-html="shorten(post.title, 50)"/>
+            <div class="gz-desc" v-html="shorten(post.description, 100)"/>
+            <div class="gz-author"><strong>Author:</strong> {{ post.author }}</div>
+            <div class="gz-date"><strong>Date:</strong> {{ post.date }}</div>
 
-                </li>
-              </ul>
-              <div class="blog-post-container">
-                <div class="blog-post">
-                  <h2 v-text="content.title"/>
-                  <hr/>
-                  <div class="spi-post" v-html="content.content"></div>
-                </div>
-              </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <div class="blog-post-container" v-if="content">
+          <div class="gz-post">
+            <div class="mt-4 p-5 rounded gz-jumbo">
+              <h1><button class="btn btn-dark gz-button" @click="selected=null; content=null" style="margin: 1px"><font-awesome-icon icon="fa-solid fa-rotate-left"/> Back</button> {{content.title}}</h1>
+              <p>{{content.description}}</p>
+              <span class="gz-tags">{{content.author}}</span> <span class="gz-tags">{{content.date}}</span>
             </div>
-          </div>
 
+            <hr/>
+            <div class="gz-post" v-html="content.content"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -39,7 +41,6 @@
 import {marked} from 'marked';
 import posts from '@/assets/posts/posts.json';
 import Theme from "@/themes/default/theme.json";
-
 
 export default {
   name: 'GZBlog',
@@ -54,21 +55,17 @@ export default {
   },
   methods: {
     async viewPostContent(id) {
-      this.$isLoading(true);
-
       const _post = this.posts.find(v => v.id === id);
 
       const post = () => import(`raw-loader!@/assets/posts/${_post.file}.md`);
 
       const postContent = await post();
       this.content = {
-        title: _post.title,
+        ..._post,
         content: marked(postContent.default)
       }
 
       this.selected = id;
-
-      this.$isLoading(false);
     },
     getUUID() {
       return ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
@@ -76,8 +73,6 @@ export default {
       );
     },
     getFiles() {
-      this.$isLoading(true);
-
       this.posts = posts.map(v => {
         return {
           id: this.getUUID(),
@@ -86,8 +81,6 @@ export default {
       });
 
       this.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-      this.$isLoading(false);
     },
     shorten(text, length) {
       if (!text) {
@@ -128,87 +121,71 @@ export default {
   },
   created() {
     this.getFiles();
-    this.viewPostContent(this.posts[0].id);
   }
 }
 </script>
 
-<style>
-input.form-control, input.form-control:focus {
+<style scoped>
+#gz-blog input.form-control, input.form-control:focus {
   background: transparent;
   color: v-bind(theme.blog.txt_searchFilter);
 }
 
-input.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+#gz-blog input.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: v-bind(theme.blog.txt_searchFilter);
   opacity: 1; /* Firefox */
 }
 
-input.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+#gz-blog input.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
   color: v-bind(theme.blog.txt_searchFilter);
 }
 
-input.form-control::-ms-input-placeholder { /* Microsoft Edge */
+#gz-blog input.form-control::-ms-input-placeholder { /* Microsoft Edge */
   color: v-bind(theme.blog.txt_searchFilter);
 }
 
-#spi-blog {
+#gz-blog {
   margin-top: -5%
 }
 
-.spi-post {
+#gz-blog .gz-post {
   color: v-bind(theme.blog.txt_postColor);
 }
 
-meta-info {
-  display: none;
-}
-
-.meta-title {
-  color: v-bind(theme.blog.txt_postBoxTitle);
+#gz-blog .gz-title {
+  color: v-bind(theme.general.accent);
   font-size: 12px;
   font-weight: bold;
 }
 
-.meta-desc, .meta-author, .meta-date {
-  font-size: 10px;
-  color: v-bind(theme.blog.txt_postBoxDesc)
+#gz-blog .gz-tags {
+  width: fit-content;
 }
 
-.list-group li {
+#gz-blog .gz-desc, #gz-blog .gz-author, #gz-blog .gz-date {
+  font-size: 10px;
+  color: v-bind(theme.general.txt_important)
+}
+
+#gz-blog .list-group li {
   background: transparent;
-  border-color: v-bind(theme.blog.postBoxBorder);
+  border-color: v-bind(theme.general.accent);
   font-family: 'Noto Sans Mono', monospace;
 }
 
-.list-group li.active {
-  background: v-bind(theme.blog.bg_postBoxSelected);
-  border-color: v-bind(theme.blog.postBoxBorderSelected);
-}
-
-.list-group li.active .meta-title {
-  color: v-bind(theme.blog.txt_postBoxTitleSelected);
-}
-
-.list-group li.active .meta-author, .list-group li.active .meta-desc, .list-group li.active .meta-date {
-  color: v-bind(theme.blog.txt_postBoxDescSelected);
-}
-
-.list-group li.active .meta-title {
-  color: v-bind(theme.blog.txt_postBoxTitleSelected);
-}
-
-.blog-post {
+#gz-blog .gz-post {
+  margin-top:10px;
   text-align: justify;
 }
 
+
 @media (max-width: 1024px) {
-  .meta-title {
+  .gz-title {
     font-size: 12px;
     font-weight: bold;
   }
 
-  .meta-desc, .meta-author, .meta-date {
+  .gz-desc, .gz-author, .gz-date {
     display: none
   }
 

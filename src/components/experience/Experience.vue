@@ -3,7 +3,7 @@
     <div class="col-md-8 offset-md-2">
       <div class="card">
         <div class="card-header">
-          <div class="companies">
+          <div class="gz-companies">
             <div v-for="company in listOfCompanies"
                 v-bind:key="company.companyCode"
                 :class="selectedCompany.companyCode === company.companyCode ? 'active' : ''"
@@ -14,16 +14,16 @@
 
         <div class="card-body">
           <div class="card-text">
-            <div class="gz-experience-values">
+            <div class="gz-job">
               <div class="company-role">{{ selectedCompany.job }} @<span
-                  class="company-name">{{ selectedCompany.companyName }}</span></div>
-              <div class="company-city">{{ selectedCompany.city }}</div>
-              <div class="company-period">{{ selectedCompany.from }} - {{ selectedCompany.to }}</div>
-              <div class="job-tags">
-                <div v-for="(item, index) in selectedCompany.tags" v-bind:key="index"
+                  class="gz-company">{{ selectedCompany.companyName }}</span></div>
+              <div class="gz-city">{{ selectedCompany.city }}</div>
+              <div class="gz-job-period">{{ selectedCompany.from }} - {{ selectedCompany.to }}</div>
+              <div>
+                <div class="gz-tags" v-for="(item, index) in selectedCompany.tags" v-bind:key="index"
                      v-html="item"></div>
               </div>
-              <ul class="job-list">
+              <ul class="gz-job-description">
                 <li v-for="(item, index) in selectedCompany.jobDescriptions" v-bind:key="index" v-html="item"></li>
               </ul>
             </div>
@@ -67,51 +67,37 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.company-role {
+.gz-job {
   text-align: center;
+}
+
+.company-role {
   color: v-bind(theme.experience.txt_companyRole);
   font-weight: bolder;
   font-size: 24px
 }
 
-.company-name {
-  color: v-bind(theme.experience.txt_company);
+.gz-company {
+  color: v-bind(theme.general.accent);
 }
 
-.company-period, .company-city {
-  text-align: center;
+.gz-job-period, .gz-city {
   font-family: 'Noto Sans Mono', monospace;
   font-size: 12px;
 }
 
-.job-tags {
-  text-align: center;
-}
-
-.job-tags div {
-  font-family: 'Noto Sans Mono', monospace;
-  white-space: nowrap;
-  font-size: 10px;
-  margin: 0 2px;
-  background: v-bind(theme.experience.bg_tags);
-  color: v-bind(theme.experience.txt_tags);
+.gz-tags {
   width: 80px;
-  border-radius: 2px;
-  padding: 2px;
-  display: inline-block;
-  text-align: center;
-  font-weight: bold;
-
 }
 
-.companies {
+.gz-companies {
   text-align: center;
 }
 
-.companies div {
+.gz-companies div {
   background: transparent;
-  color: v-bind(theme.experience.txt_companiesMenu);
-  border: 1px solid v-bind(theme.experience.companiesMenuBorder);
+  color: v-bind(theme.general.accent);
+  border: 1px solid v-bind(theme.general.accent);
   font-family: 'Noto Sans Mono', monospace;
   display: inline-block;
   width: 64px;
@@ -123,17 +109,13 @@ export default {
   margin: 1%
 }
 
-.companies div.active {
-  background: v-bind(theme.experience.bg_companiesMenuSelected);
+.gz-companies div.active {
+  background: v-bind(theme.general.accent);
   color: v-bind(theme.experience.txt_companiesMenuSelected);
-  border-color: v-bind(theme.experience.companiesMenuBorderSelected)
+  border-color: v-bind(theme.general.accent)
 }
 
-.gz-experience-values {
-  text-align: justify;
-}
-
-.job-list {
+.gz-job-description {
   padding: 0;
   margin: 20px 0 0;
   overflow: hidden;
@@ -144,15 +126,15 @@ export default {
   align-items: center;
 }
 
-.job-list li {
+.gz-job-description li {
   position: relative;
   margin-bottom: 10px;
   padding-left: 20px;
 }
 
-.job-list li::before {
+.gz-job-description li::before {
   content: "▹";
-  color: v-bind(theme.experience.descriptionArrows);
+  color: v-bind(theme.general.accent);
   position: absolute;
   left: 0;
 }

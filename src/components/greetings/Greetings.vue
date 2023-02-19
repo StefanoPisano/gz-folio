@@ -7,7 +7,7 @@
           <h1 class="card-title dev-name" v-text="greetings.title"/>
           <h1 class="card-title sub-title" v-text="greetings.subTitle"/>
           <p class="card-text caption" v-html="greetings.caption"/>
-          <p class="card-text caption" v-if="greetings.resumeEnabled"><a class="btn btn-dark spi-button" href="./resume/resume.pdf" target="_blank">Check out my Resume!</a></p>
+          <p class="card-text caption" v-if="greetings.resumeEnabled"><a class="btn btn-dark gz-button" href="./resume/resume.pdf" target="_blank">Check out my Resume!</a></p>
         </div>
       </div>
     </div>
@@ -56,27 +56,22 @@ export default {
 
 .greetings {
   font-family: 'Noto Sans Mono', monospace;
-  color: v-bind(theme.greetings.txt_greetings);
-}
-
-.card {
-  background: transparent;
-  border: none;
+  color: v-bind(theme.general.accent);
 }
 
 .dev-name {
-  color: v-bind(theme.greetings.txt_title);
+  color: v-bind(theme.general.txt_important);
   font-weight: 600;
   font-size: clamp(40px, 8vw, 80px);
 }
 
 .sub-title {
-  color: v-bind(theme.greetings.txt_subTitle);
+  color: v-bind(theme.general.secondary);
   font-size: clamp(40px, 8vw, 40px) !important;
 }
 
 .card-text {
-  color: v-bind(theme.greetings.txt_caption);
+  color: v-bind(theme.general.txt_color);
   font-size: 18px;
 }
 

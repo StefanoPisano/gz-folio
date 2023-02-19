@@ -1,52 +1,24 @@
 {
   "general": {
     "background": "#FFFDFD",
-    "textColor": "#5a6681",
-    "txt_links": "#558C8C",
-    "txt_buttons": "#558C8C",
-    "buttonsBorders": "#558C8C",
-    "txt_colored": "#558C8C"
+    "txt_important": "#558C8C",
+    "txt_secondary": "#8892b0",
+    "txt_color": "#5a6681",
+    "accent": "#558C8C"
   },
   "navigation": {
     "txt_menuIndexColor": "#5a6681"
   },
   "blog": {
     "txt_searchFilter": "#5a6681",
-    "txt_postBoxTitle": "#558C8C",
-    "postBoxBorder": "#558C8C",
-    "txt_postBoxDesc": "#231123",
-    "bg_postBoxSelected": "#558C8C",
-    "txt_postBoxTitleSelected": "#0a192f",
-    "txt_postBoxDescSelected": "#0a192f",
-    "postBoxBorderSelected": "#558C8C",
     "txt_postColor": "#231123"
   },
   "experience": {
-    "txt_company": "#558C8C",
     "txt_companyRole": "#231123",
-    "bg_tags": "#558C8C",
-    "txt_tags": "#231123",
-    "companiesMenuBorder": "#558C8C",
-    "txt_companiesMenu": "#558C8C",
-    "companiesMenuBorderSelected": "#558C8C",
-    "txt_companiesMenuSelected": "#0a192f",
-    "bg_companiesMenuSelected": "#558C8C",
-    "descriptionArrows": "#558C8C"
-  },
-  "about": {
-    "txt_about": "#5a6681",
-    "passionsArrows": "#558C8C",
-    "img_overlay": "#558C8C"
-  },
-  "greetings": {
-    "txt_greetings": "#5a6681",
-    "txt_title": "#558C8C",
-    "txt_subTitle": "#8892b0",
-    "txt_caption": "#5a6681"
+    "txt_companiesMenuSelected": "#0a192f"
   },
   "footer": {
-    "txt_footer": "#5a6681",
     "heart": "red"
-  }
+  },
+  "version": 2
 }
-

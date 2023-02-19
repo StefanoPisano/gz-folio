@@ -57,7 +57,7 @@ export default {
     },
     setBodyStyle() {
       document.querySelector('body').style.backgroundColor = this.theme.general.background;
-      document.querySelector('body').style.color = this.theme.general.textColor;
+      document.querySelector('body').style.color = this.theme.general.txt_color;
     },
     goTo(route) {
       if (route.fullScreen) {
@@ -84,7 +84,7 @@ export default {
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
 html, body {
   scroll-behavior: smooth;
   height: 100%;
@@ -107,28 +107,23 @@ body {
 }
 
 .gz-title-section {
-  color: v-bind(theme.greetings.txt_title);
+  color: v-bind(theme.general.txt_important);
   font-weight: 600;
 }
 
-.card {
-  background: transparent;
-  border: none;
+.gz-jumbo {
+  border: 1px solid v-bind(theme.general.accent)
 }
 
-.card-header {
+.card, .card-header {
   background: transparent;
   border: none
 }
 
-.spi-card-title-border {
-  border-bottom: 1px solid;
-}
-
-.spi-button {
-  color: v-bind(theme.general.txt_buttons);
+.gz-button {
+  color: v-bind(theme.general.accent);
   background-color: transparent;
-  border: 1px solid v-bind(theme.general.buttonsBorders);
+  border: 1px solid v-bind(theme.general.accent);
   border-radius: 2px;
   padding: 1rem 1rem;
   font-size: 14px;
@@ -138,18 +133,12 @@ body {
   margin: 50px 5px 0 5px;
 }
 
-.spi-link {
-  color: v-bind(theme.general.txt_links) !important;
+.gz-link {
+  color: v-bind(theme.general.accent) !important;
   font-family: 'Noto Sans Mono', monospace !important;
 }
 
-.spi-link-dotted {
-  color: v-bind(theme.general.txt_links);
-  font-family: 'Noto Sans Mono', monospace;
-  text-decoration-style: dotted;
-}
-
-.spi-card-content-img-right {
+.gz-card-content-img-right {
   display: grid;
   column-gap: 20px;
   font-size: 16px;
@@ -157,30 +146,44 @@ body {
   justify-content: space-between;
 }
 
-.spi-card-content-img-left {
-  display: grid;
-  column-gap: 25px;
-  grid-template-columns:30% auto;
+.gz-tags {
+  font-family: 'Noto Sans Mono', monospace;
+  white-space: nowrap;
+  font-size: 10px;
+  margin: 0 2px;
+  background: v-bind(theme.general.accent);
+  border-radius: 2px;
+  padding: 2px;
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+}
+
+.gz-tags {
+  color: v-bind(theme.general.txt_color);
+}
+
+.colored-text {
+  color: v-bind(theme.general.accent);
+}
+
+.disabled-text {
+  text-decoration: line-through;
 }
 
 @media (max-width: 1024px) {
-  .spi-card-content-img-left {
-    grid-template-columns: 100%;
-    row-gap: 25px;
-  }
-
-  .spi-card-content-img-right {
+  .gz-card-content-img-right {
     display: grid;
     row-gap: 25px;
     grid-auto-flow: row;
     grid-template-columns: 100%;
   }
 
-  .spi-card-content-img-right :nth-child(2) {
+  .gz-card-content-img-right :nth-child(2) {
     grid-area: 1;
   }
 
-  .spi-card-content-img-right div:nth-child(2) img {
+  .gz-card-content-img-right div:nth-child(2) img {
     border-radius: 0 !important;
     margin: auto;
   }

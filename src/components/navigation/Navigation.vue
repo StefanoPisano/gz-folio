@@ -13,8 +13,8 @@
       <div id="navContent" :class="!visible?'collapse':'nav-opened'" class="navbar-collapse">
         <ul class="navbar-nav mr-auto">
           <li v-for="(route, i) in enabledRoutes" v-bind:key="route.name" class="nav-item">
-            <a :href="'#' + route.path" class="nav-link spi-link" @click="goTo(route)"><span
-                class="spi-index">{{ i + 1 }}.</span> {{ route.label }}
+            <a :href="'#' + route.path" class="nav-link gz-link" @click="goTo(route)"><span
+                class="gz-index">{{ i + 1 }}.</span> {{ route.label }}
             </a>
           </li>
         </ul>
@@ -70,7 +70,7 @@ nav {
   font-size: 24px
 }
 
-.spi-index {
+.gz-index {
   color: v-bind(theme.navigation.txt_menuIndexColor)
 }
 

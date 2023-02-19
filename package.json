@@ -1,6 +1,6 @@
 {
   "name": "gz-folio",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -19,8 +19,7 @@
     "marked": "^4.2.12",
     "vue": "^3.2.13",
     "vue-resource": "^1.5.3",
-    "vue-router": "^4.0.13",
-    "vue3-loading-screen": "^1.0.3"
+    "vue-router": "^4.0.13"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
