@@ -39,7 +39,7 @@ I am currently working on adding new features like:
 
 ### :computer: Technologies & Programming stuff
 
-- **Vue 4** as main JavaScript framework. 
+- **Vue 3** as main JavaScript framework. 
 - **Bootstrap 5**
 - **Markdown** as reference for blog posts.
 - **HTML**

@@ -4,11 +4,18 @@
       <div class="card">
         <div class="card-header">
           <div class="gz-companies">
-            <div v-for="company in listOfCompanies"
-                v-bind:key="company.companyCode"
-                :class="selectedCompany.companyCode === company.companyCode ? 'active' : ''"
-                @click="selectedCompany = company">{{ company.label }}
-            </div>
+          <carousel ref="myCarousel" :breakpoints="breakpoints" :modelValue="selectedCompany.index">
+            <slide v-for="company in listOfCompanies" :key="company">
+              <div  :class="selectedCompany.companyCode === company.companyCode ? 'active' : ''"
+                   @click="selectedCompany = company">{{ company.label }}
+              </div>
+            </slide>
+
+            <template #addons>
+              <navigation />
+              <pagination />
+            </template>
+          </carousel>
           </div>
         </div>
 
@@ -38,15 +45,44 @@
 
 import Experience from "./experience.json";
 import Theme from "@/themes/default/theme.json";
-
+import 'vue3-carousel/dist/carousel.css';
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
 export default {
   name: 'GZExperience',
   data() {
     return {
       listOfCompanies: Experience,
       selectedCompany: {},
-      theme: Theme
+      theme: Theme,
+      breakpoints: {
+        200: {
+          itemsToShow: 2.5,
+          snapAlign: 'center',
+        },
+        300: {
+          itemsToShow: 3.5,
+          snapAlign: 'center',
+        },
+        700: {
+          itemsToShow: 4,
+          snapAlign: 'start',
+        },
+        1000: {
+          itemsToShow: 5,
+          snapAlign: 'start',
+        },
+        1300: {
+          itemsToShow: 6,
+          snapAlign: 'start',
+        },
+      },
     }
+  },
+  components: {
+    Carousel,
+    Slide,
+    Pagination,
+    Navigation,
   },
   methods: {
     async loadTheme() {
@@ -60,7 +96,11 @@ export default {
     this.loadTheme();
   },
   created() {
-    this.selectedCompany = this.listOfCompanies.find(v => v.default === true);
+
+    this.selectedCompany = {
+      ...this.listOfCompanies.find(v => v.default === true),
+      index: this.listOfCompanies.indexOf(this.listOfCompanies.find(v => v.default === true))
+    }
   }
 }
 </script>
@@ -138,5 +178,4 @@ export default {
   position: absolute;
   left: 0;
 }
-
 </style>

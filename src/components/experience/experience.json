@@ -44,6 +44,115 @@
       "Sed eget enim scelerisque, volutpat diam et, blandit enim.",
       "Ut gravida tellus id eros molestie, sed luctus ligula mollis."
     ],
+    "default": false
+  },
+  {
+    "companyCode": "ghi",
+    "label": "GHI",
+    "companyName": "GHI Company",
+    "city": "GHI City, World",
+    "job": "My beautiful role in GHI",
+    "from": "Oct 2020",
+    "to": "Nov 2020",
+    "tags": [
+      "Skill 1"
+    ],
+    "jobDescriptions": [
+      "Nulla at arcu fermentum, eleifend dolor in, rutrum magna."
+    ],
+    "default": false
+  },
+  {
+    "companyCode": "lmn",
+    "label": "LMN",
+    "companyName": "LMN Company",
+    "city": "LMN City, World",
+    "job": "My beautiful role in LMN",
+    "from": "Nov 2020",
+    "to": "Dec 2020",
+    "tags": [
+      "Skill 1",
+      "Skill 2",
+      "Skill 3",
+      "Skill 4"
+    ],
+    "jobDescriptions": [
+      "Nulla at arcu fermentum, eleifend dolor in, rutrum magna.",
+      "Sed eget enim scelerisque, volutpat diam et, blandit enim.",
+      "Ut gravida tellus id eros molestie, sed luctus ligula mollis."
+    ],
+    "default": false
+  },
+  {
+    "companyCode": "opq",
+    "label": "OPQ",
+    "companyName": "OPQ Company",
+    "city": "OPQ City, World",
+    "job": "My beautiful role in OPQ",
+    "from": "Dec 2020",
+    "to": "Mar 2021",
+    "tags": [
+      "Skill 1",
+      "Skill 2",
+      "Skill 3",
+      "Skill 4",
+      "Skill 5",
+      "Skill 6",
+      "Skill 7"
+    ],
+    "jobDescriptions": [
+      "Nulla at arcu fermentum, eleifend dolor in, rutrum magna.",
+      "Sed eget enim scelerisque, volutpat diam et, blandit enim.",
+      "Ut gravida tellus id eros molestie, sed luctus ligula mollis.",
+      "Nulla at arcu fermentum, eleifend dolor in, rutrum magna.",
+      "Sed eget enim scelerisque, volutpat diam et, blandit enim.",
+      "Ut gravida tellus id eros molestie, sed luctus ligula mollis.",
+      "Nulla at arcu fermentum, eleifend dolor in, rutrum magna.",
+      "Sed eget enim scelerisque, volutpat diam et, blandit enim.",
+      "Ut gravida tellus id eros molestie, sed luctus ligula mollis."
+    ],
+    "default": false
+  },
+  {
+    "companyCode": "rst",
+    "label": "RST",
+    "companyName": "RST Company",
+    "city": "RST City, World",
+    "job": "My beautiful role in RST",
+    "from": "Mar 2021",
+    "to": "Apr 2021",
+    "tags": [
+      "Skill 1",
+      "Skill 2",
+      "Skill 3",
+      "Skill 4"
+    ],
+    "jobDescriptions": [
+      "Nulla at arcu fermentum, eleifend dolor in, rutrum magna.",
+      "Sed eget enim scelerisque, volutpat diam et, blandit enim.",
+      "Ut gravida tellus id eros molestie, sed luctus ligula mollis."
+    ],
+    "default": false
+  },
+  {
+    "companyCode": "uvz",
+    "label": "UVZ",
+    "companyName": "UVZ Company",
+    "city": "UVZ City, World",
+    "job": "My beautiful role in UVZ",
+    "from": "Apr 2021",
+    "to": "Present",
+    "tags": [
+      "Skill 1",
+      "Skill 2",
+      "Skill 3",
+      "Skill 4"
+    ],
+    "jobDescriptions": [
+      "Nulla at arcu fermentum, eleifend dolor in, rutrum magna.",
+      "Sed eget enim scelerisque, volutpat diam et, blandit enim.",
+      "Ut gravida tellus id eros molestie, sed luctus ligula mollis."
+    ],
     "default": true
   }
 ]
