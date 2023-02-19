@@ -21,7 +21,7 @@
               <div class="gz-job-period">{{ selectedCompany.from }} - {{ selectedCompany.to }}</div>
               <div>
                 <div class="gz-tags" v-for="(item, index) in selectedCompany.tags" v-bind:key="index"
-                     v-html="item"></div>
+                     v-text="item"></div>
               </div>
               <ul class="gz-job-description">
                 <li v-for="(item, index) in selectedCompany.jobDescriptions" v-bind:key="index" v-html="item"></li>

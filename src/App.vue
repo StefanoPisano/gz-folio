@@ -163,13 +163,26 @@ body {
   color: v-bind(theme.general.txt_color);
 }
 
-.colored-text {
+.gz-accent {
   color: v-bind(theme.general.accent);
 }
 
-.disabled-text {
+.gz-disabled {
   text-decoration: line-through;
 }
+
+.gz-float{
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background-color:v-bind(theme.general.accent);
+  color:v-bind(theme.general.txt_secondary);
+  border-radius:50%;
+  text-align:center;
+}
+
 
 @media (max-width: 1024px) {
   .gz-card-content-img-right {

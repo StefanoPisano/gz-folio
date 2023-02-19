@@ -40,17 +40,17 @@ I am currently working on adding new features like:
 ### :computer: Technologies & Programming stuff
 
 - **Vue 4** as main JavaScript framework. 
+- **Bootstrap 5**
 - **Markdown** as reference for blog posts.
 - **HTML**
 - **CSS**
 
 ### :hammer: How to run
 1. Clone this repository into your local environment.
-2. Edit entry `"name": "gz-folio"` in your package.json file, give a proper name to it!
-3. Run `npm install`
-4. Run `npm run serve`
-5. Open *localhost:8080* or whichever url it will be prompt in the console and see if it is working correctly.
-6. Push it to your repository with a nice name for your personal portfolio.
+2. Run `npm install`
+3. Run `npm run serve`
+4. Open *localhost:8080* or whichever url it will be prompt in the console and see if it is working correctly.
+5. Push it to your repository with a nice name for your personal portfolio.
 
 ### :file_folder: Sections
 The portfolio is highly customizable, if you don't need a particular route (menu entry), you can deactivate it using the configuration inside `src/router/routing-toggle.json` <br/>
@@ -58,7 +58,7 @@ The configuration should be straightforward, every entry can be enabled or disab
 
     "name": "GZBlog",
     "label": "Blog",
-    "path": "/blog",
+    "path": "blog",
     "enabled": true/false
 
 
@@ -69,6 +69,12 @@ By changing the **label** value you will modify the label on the navigation menu
 I don't want you to waste time inside HTML tags and vue components, I want you to only focus on the content of your portfolio.
 You will be able to do that by editing some simple `json` files, one for every section.<br/>
 Please do not remove credits from the footer one :)
+
+### :framed_picture: Images
+You can customize images in the following way:
+- **Navbar logo** : just replace the image `logo_navbar.png` inside the folder `src/assets/img`.
+- **About picture** : just replace the image `about.png` inside the folder `src/assets/img`.
+- **Favicon** : just replace the image `favicon.png` inside the folder `public/`.
 
 ### :envelope: Resume
 You can set a download link for your curriculum vitae by simply adding a file called `resume.pdf` inside the `public/resume` folder. <br/>
@@ -98,15 +104,27 @@ In order to be able to see the newly created theme you should do one last thing:
 2. Look for `app.config.globalProperties.$theme = 'default'` 
 3. Replace `default` with the name of your theme (the directory name)
 
+### :globe_with_meridians: Classes
+There are some useful classes that you can use in order to improve you writing content.
+- `gz-accent` create a nice and beautiful text with the _accent_ color defined in the theme.
+- `gz-disabled` just a text with a line-through
+
+Classes can be used to customize the following sections:
+- Greetings, the caption.
+- About summary.
+- Experience, the description list for a particular job.
+
+
 ### :rocket: Deploy
 Also this one is simple, too simple :D
 
-1. Open the script `deploy.sh`.
-2. Look for `git push -f your-git-repository master:gh-pages`.
-3. Replace `your-git-repository` with the name of your repository.
-4. Open `vue.config.js` file and replace `gz-folio` with the name of your repository.
-5. Run `npm run deploy`
-6. Follow the deployment process on Github Actions
+1. Open `vue.config.js` and replace `gz-folio` path with the name of your repository.
+2. Open the script `deploy.sh`.
+3. Look for `git push -f your-git-repository master:gh-pages`.
+4. Replace `your-git-repository` with the name of your repository.
+5. Open `vue.config.js` file and replace `gz-folio` with the name of your repository.
+6. Run `npm run deploy`
+7. Follow the deployment process on Github Actions
 
 You can use this script to deploy it on GitHub pages but the portfolio should work on any host.
 

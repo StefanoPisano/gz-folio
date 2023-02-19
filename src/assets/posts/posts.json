@@ -1,6 +1,6 @@
 [
   {
-    "title": "A very very long Lorem ipsum dolor sit amet title. That will be truncated for sure.",
+    "title": "A very very long Lorem ipsum dolor sit amet title. Let's see if it will break the layout!",
     "author": "Author 1 name",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultrices fringilla enim quis dapibus.In suscipit auctor est a commodo. Sed vitae nisi sed lorem sagittis porta. Nullam tincidunt ac felis a sagittis. Donec placerat mi dui, at maximus purus venenatis vel. Curabitur maximus mauris sem, non imperdiet justo egestas.",
     "date": "2023-01-19",

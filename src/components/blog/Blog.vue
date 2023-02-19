@@ -1,30 +1,34 @@
 <template>
   <section id="gz-blog" class="gz-box">
     <div class="row">
-      <div class="col-md-4 offset-md-4">
-        <ul class="list-group" v-if="!content">
+      <div class="col-md-8 offset-md-2">
+        <div class="gz-articles" v-if="!content">
           <input v-model="filterSearch" class="form-control" placeholder="Search..." type="text"/>
-          <li v-for="post in filteredPosts" v-bind:key="post.id"
-              :class="selected === post.id ? 'list-group-item active' : 'list-group-item'"
-              @click="viewPostContent(post.id)">
+          <div v-for="post in filteredPosts" v-bind:key="post.id" class="gz-article-preview"
+               @click="viewPostContent(post.id)">
 
-            <div class="gz-title" v-html="shorten(post.title, 50)"/>
-            <div class="gz-desc" v-html="shorten(post.description, 100)"/>
+            <div class="gz-title" v-text="post.title"/>
+            <div class="gz-desc" v-html="post.description"/>
             <div class="gz-author"><strong>Author:</strong> {{ post.author }}</div>
             <div class="gz-date"><strong>Date:</strong> {{ post.date }}</div>
-
-          </li>
-        </ul>
+            <hr/>
+          </div>
+        </div>
       </div>
     </div>
     <div class="row">
       <div class="col-md-8 offset-md-2">
         <div class="blog-post-container" v-if="content">
+          <button class="btn btn-dark gz-button gz-float" @click="selected=null; content=null" style="margin: 1px">
+            <font-awesome-icon icon="fa-solid fa-rotate-left"/>
+          </button>
           <div class="gz-post">
             <div class="mt-4 p-5 rounded gz-jumbo">
-              <h1><button class="btn btn-dark gz-button" @click="selected=null; content=null" style="margin: 1px"><font-awesome-icon icon="fa-solid fa-rotate-left"/> Back</button> {{content.title}}</h1>
-              <p>{{content.description}}</p>
-              <span class="gz-tags">{{content.author}}</span> <span class="gz-tags">{{content.date}}</span>
+              <h1>
+                {{ content.title }}
+              </h1>
+              <p>{{ content.description }}</p>
+              <span class="gz-tags">{{ content.author }}</span> <span class="gz-tags">{{ content.date }}</span>
             </div>
 
             <hr/>
@@ -81,15 +85,6 @@ export default {
       });
 
       this.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-    },
-    shorten(text, length) {
-      if (!text) {
-        return '';
-      } else if (text.length > length) {
-        return text.substring(0, length) + '...'
-      } else {
-        return text;
-      }
     },
     async loadTheme() {
       if (this.$theme && this.$theme !== 'default') {
@@ -167,27 +162,96 @@ export default {
   color: v-bind(theme.general.txt_important)
 }
 
-#gz-blog .list-group li {
+.gz-article-preview .gz-desc {
+  overflow:hidden;
+  max-height: 40px;
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+}
+
+.gz-articles .gz-article-preview {
   background: transparent;
-  border-color: v-bind(theme.general.accent);
+  padding: 5px;
+  margin: 5px 0;
+  height: 110px;
   font-family: 'Noto Sans Mono', monospace;
 }
 
 #gz-blog .gz-post {
-  margin-top:10px;
+  margin-top: 10px;
   text-align: justify;
 }
 
+@media (max-width: 300px)  {
+  .gz-articles .gz-article-preview {
+    line-height: 10px;
+    height: 70px;
+  }
 
-@media (max-width: 1024px) {
+  .gz-author, .gz-date{
+    display: none;
+  }
+}
+
+@media (min-width: 301px) and (max-width: 595px) {
+  .gz-articles .gz-article-preview {
+    line-height: 15px;
+  }
+
   .gz-title {
     font-size: 12px;
     font-weight: bold;
   }
 
-  .gz-desc, .gz-author, .gz-date {
-    display: none
+  .gz-article-preview .gz-author, .gz-article-preview .gz-date {
+    display: none;
+  }
+
+  .gz-article-preview .gz-desc {
+    max-height: 55px;
+  }
+}
+
+@media (min-width: 596px) and (max-width: 767px){
+  .gz-articles .gz-article-preview {
+    line-height: 15px;
+  }
+
+  .gz-article-preview .gz-title {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .gz-article-preview .gz-author, .gz-article-preview .gz-date {
+    display: none;
+  }
+
+  .gz-article-preview .gz-desc {
+    max-height: 80px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+  .gz-articles .gz-article-preview {
+    line-height: 15px;
+  }
+
+  .gz-article-preview .gz-title {
+    font-size: 12px;
+    max-height: 30px;
+  }
+
+  .gz-article-preview .gz-author, .gz-article-preview .gz-date {
+    display: none;
+  }
+
+  .gz-article-preview .gz-desc {
+    max-height: 70px;
   }
 
 }
+
 </style>
