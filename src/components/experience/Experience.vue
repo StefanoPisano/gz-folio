@@ -4,18 +4,18 @@
       <div class="card">
         <div class="card-header">
           <div class="gz-companies">
-          <carousel ref="myCarousel" :breakpoints="breakpoints" :modelValue="selectedCompany.index">
-            <slide v-for="company in listOfCompanies" :key="company">
-              <div  :class="selectedCompany.companyCode === company.companyCode ? 'active' : ''"
-                   @click="selectedCompany = company">{{ company.label }}
-              </div>
-            </slide>
+            <carousel ref="myCarousel" :breakpoints="getBreakPoints" :modelValue="selectedCompany.index">
+              <slide v-for="company in listOfCompanies" :key="company">
+                <div :class="selectedCompany.companyCode === company.companyCode ? 'active' : ''"
+                     @click="selectedCompany = company">{{ company.label }}
+                </div>
+              </slide>
 
-            <template #addons>
-              <navigation />
-              <pagination />
-            </template>
-          </carousel>
+              <template #addons>
+                <navigation/>
+                <pagination/>
+              </template>
+            </carousel>
           </div>
         </div>
 
@@ -46,36 +46,15 @@
 import Experience from "./experience.json";
 import Theme from "@/themes/default/theme.json";
 import 'vue3-carousel/dist/carousel.css';
-import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel';
+import {Carousel, Slide, Pagination, Navigation} from 'vue3-carousel';
+
 export default {
   name: 'GZExperience',
   data() {
     return {
       listOfCompanies: Experience,
       selectedCompany: {},
-      theme: Theme,
-      breakpoints: {
-        200: {
-          itemsToShow: 2.5,
-          snapAlign: 'center',
-        },
-        300: {
-          itemsToShow: 3.5,
-          snapAlign: 'center',
-        },
-        700: {
-          itemsToShow: 4,
-          snapAlign: 'start',
-        },
-        1000: {
-          itemsToShow: 5,
-          snapAlign: 'start',
-        },
-        1300: {
-          itemsToShow: 6,
-          snapAlign: 'start',
-        },
-      },
+      theme: Theme
     }
   },
   components: {
@@ -94,6 +73,38 @@ export default {
   },
   beforeMount() {
     this.loadTheme();
+  },
+  computed: {
+    getBreakPoints() {
+      const w_1300 = this.listOfCompanies.length > 5 ? 6 : this.listOfCompanies.length;
+      const w_1000 = this.listOfCompanies.length > 4 ? 5 : this.listOfCompanies.length;
+      const w_700 = this.listOfCompanies.length > 3 ? 4 : this.listOfCompanies.length;
+      const w_300 = this.listOfCompanies.length > 2 ? 3.5 : this.listOfCompanies.length;
+      const w_200 = this.listOfCompanies.length > 1 ? 2.5 : this.listOfCompanies.length;
+
+      return {
+        200: {
+          itemsToShow: w_200,
+          snapAlign: 'center',
+        },
+        300: {
+          itemsToShow: w_300,
+          snapAlign: 'center',
+        },
+        700: {
+          itemsToShow: w_700,
+          snapAlign: 'start',
+        },
+        1000: {
+          itemsToShow: w_1000,
+          snapAlign: 'start',
+        },
+        1300: {
+          itemsToShow: w_1300,
+          snapAlign: 'start',
+        },
+      }
+    }
   },
   created() {
 
