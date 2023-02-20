@@ -5,5 +5,3 @@ git fetch main-repo
 git checkout main-repo/main -- gz-f-update.sh
 
 sh ./gz-f-update.sh
-
-npm run install
