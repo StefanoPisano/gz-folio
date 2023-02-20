@@ -4,18 +4,28 @@
       <div class="card">
         <div class="card-header">
           <div class="gz-companies">
-            <carousel ref="myCarousel" :breakpoints="getBreakPoints" :modelValue="selectedCompany.index">
-              <slide v-for="company in listOfCompanies" :key="company">
-                <div :class="selectedCompany.companyCode === company.companyCode ? 'active' : ''"
-                     @click="selectedCompany = company">{{ company.label }}
-                </div>
-              </slide>
+            <template v-if="useCarousel">
+              <carousel ref="myCarousel" :breakpoints="getBreakPoints" :modelValue="selectedCompany.index">
+                <slide v-for="company in listOfCompanies" :key="company">
+                  <div :class="selectedCompany.companyCode === company.companyCode ? 'active' : ''"
+                       @click="selectedCompany = company">{{ company.label }}
+                  </div>
+                </slide>
 
-              <template #addons>
-                <navigation/>
-                <pagination/>
-              </template>
-            </carousel>
+                <template #addons>
+                  <navigation/>
+                  <pagination/>
+                </template>
+              </carousel>
+            </template>
+            <template v-else>
+              <div v-for="company in listOfCompanies"
+                   v-bind:key="company.companyCode"
+                   :class="selectedCompany.companyCode === company.companyCode ? 'active' : ''"
+                   @click="selectedCompany = company">{{ company.label }}
+              </div>
+            </template>
+
           </div>
         </div>
 
@@ -54,7 +64,8 @@ export default {
     return {
       listOfCompanies: Experience,
       selectedCompany: {},
-      theme: Theme
+      theme: Theme,
+      useCarousel: false
     }
   },
   components: {
@@ -69,6 +80,42 @@ export default {
         const themeLoad = () => import(`@/themes/${this.$theme}/theme.json`);
         this.theme = await themeLoad();
       }
+    },
+    setUseCarousel() {
+      const width = window.innerWidth;
+      const noOfCompanies = this.listOfCompanies.length;
+
+      if(200 <=width && width <=300) {
+        this.useCarousel = noOfCompanies >= 2;
+        return;
+      }
+
+      if(300 < width && width <=500) {
+        this.useCarousel =  noOfCompanies >= 3;
+        return;
+      }
+
+      if(500 < width && width <=600) {
+        this.useCarousel =  noOfCompanies >= 5;
+        return;
+      }
+
+      if(600 < width && width <=850) {
+        this.useCarousel =  noOfCompanies >= 6;
+        return;
+      }
+
+      if(850 < width && width <=1000) {
+        this.useCarousel =  noOfCompanies >= 7;
+        return;
+      }
+
+      if(width > 1000) {
+        this.useCarousel =  noOfCompanies >= 10;
+        return;
+      }
+
+      this.useCarousel =  false;
     },
   },
   beforeMount() {
@@ -107,11 +154,14 @@ export default {
     }
   },
   created() {
-
     this.selectedCompany = {
       ...this.listOfCompanies.find(v => v.default === true),
       index: this.listOfCompanies.indexOf(this.listOfCompanies.find(v => v.default === true))
     }
+
+    this.$nextTick(() => {
+      window.addEventListener('resize', this.setUseCarousel);
+    })
   }
 }
 </script>
