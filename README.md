@@ -84,9 +84,6 @@ If you don't need it you can disable it by simply disabling the property inside 
 Blog articles should be written in **Markdown** language and they should be put inside the folder `src/assets/posts`. <br/>
 Inside that folder you will find another `json` file, in order to make an article available to your audience you will need to edit this file and add an entry to that providing simple informations like the author, the date, a title and a description. <br/>
 Articles will be sorted automatically based on the dates.
-Titles and descriptions will be automatically truncated if their length is greater than:
-- **Title**: 50 characters
-- **Description**: 100 characters
 
 At the moment the blog does not support embedding local images but you can always host them somewhere and use the link as reference.
 
