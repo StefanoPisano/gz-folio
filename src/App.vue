@@ -6,6 +6,7 @@
       <Greetings v-if="displayMe('GZGreetings')"></Greetings>
       <About v-if="displayMe('GZAbout')"></About>
       <Experience v-if="displayMe('GZExperience')"></Experience>
+      <Projects v-if="displayMe('GZProjects')"></Projects>
       <Contacts v-if="displayMe('GZContacts')"></Contacts>
 
       <template v-if="displayMe('GZBlog')">
@@ -26,10 +27,12 @@ import Experience from "@/components/experience/Experience.vue";
 import Greetings from "@/components/greetings/Greetings.vue";
 import Contacts from "@/components/contacts/Contacts.vue";
 import Blog from "@/components/blog/Blog.vue";
+import Projects from "@/components/projects/projects.vue";
 
 export default {
   name: 'App',
   components: {
+    Projects,
     Blog,
     Contacts,
     Greetings,

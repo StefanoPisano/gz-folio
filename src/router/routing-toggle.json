@@ -18,6 +18,12 @@
     "enabled": true
   },
   {
+    "name": "GZProjects",
+    "label": "Projects",
+    "path": "projects",
+    "enabled": true
+  },
+  {
     "name": "GZContacts",
     "label": "Contacts",
     "path": "contacts",
