@@ -1,10 +1,10 @@
 {
   "general": {
-    "background": "#FFFDFD",
+    "background": "#fff",
     "txt_important": "#558C8C",
     "txt_secondary": "#8892b0",
     "txt_color": "#5a6681",
-    "accent": "#558C8C"
+    "accent": "#8892b0"
   },
   "navigation": {
     "txt_menuIndexColor": "#5a6681"
