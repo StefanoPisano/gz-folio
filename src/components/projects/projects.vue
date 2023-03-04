@@ -25,9 +25,9 @@
 
     <div class="row" style="text-align: center">
       <div class="col-md-8 offset-md-2 skillFilters">
-          <button :class="tag===selectedTag ? 'btn btn-dark gz-button active' : 'btn btn-dark gz-button'"
-                  v-for="(tag, index) in availableTags" v-bind:key="index" v-text="tag"
-                  @click="filterProjects(tag)"></button>
+        <button :class="tag===selectedTag ? 'btn btn-dark gz-button active' : 'btn btn-dark gz-button'"
+                v-for="(tag, index) in availableTags" v-bind:key="index" v-text="tag"
+                @click="filterProjects(tag)"></button>
       </div>
     </div>
 
@@ -52,9 +52,9 @@
             <div class="row details-gallery">
               <div class="col-md-2"/>
               <div class="col-md-8">
-                <img class="img-fluid" :src="selectedProject.details.image_one">
-                <img class="img-fluid" :src="selectedProject.details.image_two">
-                <img class="img-fluid" :src="selectedProject.details.image_three">
+                <img v-if="selectedProject.details.image_one" class="img-fluid" :src="selectedProject.details.image_one">
+                <img v-if="selectedProject.details.image_two" class="img-fluid" :src="selectedProject.details.image_two">
+                <img v-if="selectedProject.details.image_three" class="img-fluid" :src="selectedProject.details.image_three">
               </div>
               <div class="col-md-2"/>
             </div>
@@ -75,21 +75,21 @@
       <div class="col-md-8 offset-md-2">
         <div class="ranking">
           <div v-for="(tag,index) in skillRankings" v-bind:key="index" class="ranking-row">
-              <template v-if="index=== 0">
-                <img class="img-fluid medal" src="@/assets/img/gz-private/medals/gold.png">
-              </template>
-              <template v-else-if="index===1">
-                <img class="img-fluid medal" src="@/assets/img/gz-private/medals/argent.png">
-              </template>
-              <template v-else-if="index===2">
-                <img class="img-fluid medal" src="@/assets/img/gz-private/medals/bronze.png">
-              </template>
+            <template v-if="index=== 0">
+              <img class="img-fluid medal" src="@/assets/img/gz-private/medals/gold.png">
+            </template>
+            <template v-else-if="index===1">
+              <img class="img-fluid medal" src="@/assets/img/gz-private/medals/argent.png">
+            </template>
+            <template v-else-if="index===2">
+              <img class="img-fluid medal" src="@/assets/img/gz-private/medals/bronze.png">
+            </template>
             <template v-else>
               <div></div>
             </template>
 
             <div v-text="tag[0]"></div>
-            <div>{{tag[1]}} %</div>
+            <div>{{ tag[1] }} %</div>
           </div>
         </div>
       </div>
@@ -155,7 +155,7 @@ export default {
 
       let totalOccurencies = 0;
       for (let skill in rankOccuriences) {
-          totalOccurencies += rankOccuriences[skill];
+        totalOccurencies += rankOccuriences[skill];
       }
 
 
@@ -179,9 +179,18 @@ export default {
         details: {
           ...v.details,
           landing: v.details ? require(`@/assets/img/projects/${v.details.banner}`) : null,
-          image_one: v.details ? require(`@/assets/img/projects/${v.details.image_one}`) : null,
-          image_two: v.details ? require(`@/assets/img/projects/${v.details.image_two}`) : null,
-          image_three: v.details ? require(`@/assets/img/projects/${v.details.image_three}`) : null,
+          image_one: v.details ?
+              v.details.image_one ?
+                  require(`@/assets/img/projects/${v.details.image_one}`) : null
+              : null,
+          image_two: v.details ?
+              v.details.image_two ?
+                  require(`@/assets/img/projects/${v.details.image_two}`) : null
+              : null,
+          image_three: v.details ?
+              v.details.image_three ?
+                  require(`@/assets/img/projects/${v.details.image_three}`) : null
+              : null,
         }
       }
     })
@@ -268,22 +277,22 @@ export default {
   font-family: 'Noto Sans Mono', monospace;
 }
 
-#projects .ranking .ranking-row:nth-of-type(1){
+#projects .ranking .ranking-row:nth-of-type(1) {
   transform: scale(1.12);
   opacity: .9;
 }
 
-#projects .ranking .ranking-row:nth-of-type(2){
+#projects .ranking .ranking-row:nth-of-type(2) {
   transform: scale(1.1);
   opacity: .7;
 }
 
-#projects .ranking .ranking-row:nth-of-type(3){
+#projects .ranking .ranking-row:nth-of-type(3) {
   transform: scale(1.05);
   opacity: .6;
 }
 
-#projects .ranking .ranking-row{
+#projects .ranking .ranking-row {
   opacity: .4;
 }
 

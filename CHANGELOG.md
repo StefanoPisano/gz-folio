@@ -4,4 +4,4 @@
 <hr>
 
 **Name** : Project section<br/>
-**Description** : fixed issue with projects link, link is not mandatory anymore.
+**Description** : fixed issue with projects details images, images on the details are  not mandatory anymore.
