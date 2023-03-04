@@ -26,14 +26,14 @@ import About from "@/components/about/About.vue";
 import Experience from "@/components/experience/Experience.vue";
 import Greetings from "@/components/greetings/Greetings.vue";
 import Contacts from "@/components/contacts/Contacts.vue";
-import Blog from "@/components/blog/Blog.vue";
 import Projects from "@/components/projects/projects.vue";
+import {defineAsyncComponent} from "vue";
 
 export default {
   name: 'App',
   components: {
     Projects,
-    Blog,
+    Blog: defineAsyncComponent(() => import('./components/blog/Blog.vue')),
     Contacts,
     Greetings,
     Experience,
