@@ -10,7 +10,7 @@
               <span class="gz-tags" v-for="(tag,index) in prj.tags" v-bind:key="index">{{ tag }}</span>
             </h6>
             <p class="card-text gz-prj-description">{{ shortener(prj.description) }}</p>
-            <a :href="prj.link" class="btn btn-dark gz-button" target="_blank">
+            <a v-if="prj.link" :href="prj.link" class="btn btn-dark gz-button" target="_blank">
               <font-awesome-icon icon="fas fa-link"/>
             </a>
             <button v-if="prj.details.description" @click="selectedProject=prj" class="btn btn-dark gz-button"
@@ -60,7 +60,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <a :href="selectedProject.link" class="btn btn-dark gz-button" target="_blank">
+            <a v-if="selectedProject.link" :href="selectedProject.link" class="btn btn-dark gz-button" target="_blank">
               <font-awesome-icon icon="fas fa-link"/>
             </a>
             <button type="button" class="btn btn-dark gz-button" data-bs-dismiss="modal">
