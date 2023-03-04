@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 /* import specific icons */
 import { faHeadphones, faRotateLeft, faTimes, faLink, faPlus } from '@fortawesome/free-solid-svg-icons'
 
+import './registerServiceWorker'
+
 /* add icons to the library */
 library.add(faHeadphones, faRotateLeft, faTimes, faLink, faPlus)
 

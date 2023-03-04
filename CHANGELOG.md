@@ -3,5 +3,5 @@
 
 <hr>
 
-**Name** : Project section<br/>
-**Description** : fixed issue with projects details images, images on the details are  not mandatory anymore.
+**Name** : GZ - Folio<br/>
+**Description** : now the portfolio supports _Progressive Web App_, you will be able to visit the portfolio using a progressive web application.

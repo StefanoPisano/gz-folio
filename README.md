@@ -18,6 +18,7 @@ The main goal of this project is to have a user-friendly way to create a persona
 - Email and other relevant point of contacts.
 - Add your Curriculum Vitae pdf within the portfolio.
 - Mobile friendly.
+- Progressive web application.
 <br/>
 It does not require any backend or database integration, it is full front end!
 <br/><br/>
@@ -34,7 +35,7 @@ Feel free to send me your portfolio link at spisano@protonmail.com, I will add i
 ### 🌱 What's next
 I am currently working on adding new features like:
 - [ ] Photo Gallery.
-- [ ] Work Projects.
+- [x] Work Projects.
 - [ ] Realtime themes previews.
 
 ### :computer: Technologies & Programming stuff
