@@ -18,7 +18,7 @@ The main goal of this project is to have a user-friendly way to create a persona
 - Email and other relevant point of contacts.
 - Add your Curriculum Vitae pdf within the portfolio.
 - Mobile friendly.
-- Progressive web application.
+- Progressive web application. You will only ned to run `vue add @vue/pwa`
 <br/>
 It does not require any backend or database integration, it is full front end!
 <br/><br/>
