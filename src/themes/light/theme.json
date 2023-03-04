@@ -4,7 +4,10 @@
     "txt_important": "#558C8C",
     "txt_secondary": "#8892b0",
     "txt_color": "#5a6681",
-    "accent": "#8892b0"
+    "accent": "#8892b0",
+    "gradient_start": "#0a192f",
+    "gradient_middle": "rgba(55, 154, 130, 1)",
+    "gradient_end": "rgba(69, 143, 158, 1)"
   },
   "navigation": {
     "txt_menuIndexColor": "#5a6681"
